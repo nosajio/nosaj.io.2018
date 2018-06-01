@@ -1,0 +1,35 @@
+{
+  "name": "nosaj.io",
+  "version": "6.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "dotenv": "^5.0.1",
+    "koa": "^2.5.1",
+    "memory-fs": "^0.4.1",
+    "pug": "^2.0.3",
+    "webpack": "^4.10.2"
+  },
+  "devDependencies": {
+    "file-loader": "^1.1.11"
+  },
+  "scripts": {
+    "start": "NODE_PATH=. node ./server",
+    "dev": "NODE_PATH=. DEBUG=nosaj:* nodemon ./server --ignore ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosajio/nosaj.io.git"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "Jason Howmans <yo@nosaj.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nosajio/nosaj.io/issues"
+  },
+  "homepage": "https://nosaj.io"
+}

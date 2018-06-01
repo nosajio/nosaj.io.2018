@@ -21,6 +21,3 @@ node_modules
 dist
 .DS_Store
 logs
-
-# Visual Studio code settings
-.vscode
