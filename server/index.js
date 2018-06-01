@@ -6,24 +6,26 @@ require('dotenv').config();
 const Koa = require('koa');
 const app = new Koa();
 
-const { bundleToMemory, assetFromFS } = require('./compiler/compile-assets');
-const { getViewHTML } = require('./compiler/compile-views');
+const { bundleToMemory } = require('./compiler/compile-assets');
 const { log, error } = require('server/logging')('server');
 
 const listenPort = process.env.PORT || 3012;
 
-const renderHomepage = () => {
-  const view = getViewHTML('homepage');
-  return view;
-}
+const renderHomepage = require('./renderers/homepage-renderer');
 
 const bootServer = async () => {
+  // Bundle up scripts and stylesheets and save to memory on boot. Then we can
+  // rapidly get to them when a request comes in.
   await bundleToMemory('./web/index.js');
 
+  // Setup the one and only request handler
   app.use(async ({request, response}) => {
-    if (request.url === '/') {
-      log('home')
-      response.body = renderHomepage();
+    // TODO if this gets to > a few routes, refactor into simple route => renderer function
+    switch (request.url) {
+      // Home route
+      case '/':
+        response.body = renderHomepage();      
+        return;
     }
     return;
   });
