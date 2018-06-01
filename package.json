@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=. node ./server",
-    "dev": "NODE_PATH=. DEBUG=nosaj:* nodemon ./server --ignore ./dist",
+    "dev": "NODE_PATH=. DEBUG=nosaj:* nodemon -L ./server --ignore ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
