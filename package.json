@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "autoprefixer": "^8.6.0",
     "debug": "^3.1.0",
     "dotenv": "^5.0.1",
     "koa": "^2.5.1",

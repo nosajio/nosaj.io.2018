@@ -1,9 +1,8 @@
 const path = require('path');
-const fs = require('fs');
 const webpack = require('webpack');
 const MemoryFS = require('memory-fs');
-const postcss = require('postcss');
 const { basedir, fromBase } = require('constants/paths');
+const openFileAndPostcss = require('./compile-postcss');
 
 const { error, log } = require('server/logging')('compile-assets');
 
@@ -13,10 +12,6 @@ const dev = process.env.ENV === 'development';
 // until they are needed in response to incoming requests.
 // * Keep out of scope so that memfs can act as a in memory cache for assets
 const memfs = new MemoryFS();
-
-// Plugins to apply to the postcss pipeline
-const postcssPlugins = [];
-
 
 /**
  * Retrieve an asset from filesystem
@@ -59,24 +54,6 @@ const cssToMemory = async entries => {
   return entries;
 }
 
-
-/**
- * Open a css file and buffer the contents to postcss
- * @param {String} filepath - Path to a css file to be compiiled
- */
-const openFileAndPostcss = filepath => {
-  const pathFromBase = fromBase(filepath);
-  let fileContents;
-  try {
-    fileContents = fs.readFileSync(pathFromBase);
-  } catch(err) {
-    error('Couldn\'t open the css file for some reason');
-    return Promise.reject(err);
-  }
-  return postcss(postcssPlugins)
-      .process(fileContents, { from: pathFromBase })
-      .then(result => ([filepath, result.css]))
-}
 
 
 /**

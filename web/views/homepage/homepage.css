@@ -1,3 +1,7 @@
 body.homepage {
   background: #54db98;
 }
+
+::placeholder {
+  color: red;
+}
