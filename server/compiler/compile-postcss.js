@@ -1,13 +1,20 @@
 const { fromBase } = require('constants/paths')
 const fs = require('fs');
 const postcss = require('postcss');
+const { msopts, ms } = require('modularscale-helpers');
 
 const { error, log } = require('server/logging')('compile-postcss');
+
+const postcssFns = {
+  scaleInit: opts => msopts(opts),
+  scale: e => ms(e),
+}
 
 // Plugins to apply to the postcss pipeline
 const postcssPlugins = [
   require('autoprefixer'),
   require('postcss-import'),
+  require('postcss-functions')(postcssFns),
 ];
 
 /**

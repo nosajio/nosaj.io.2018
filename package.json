@@ -9,8 +9,9 @@
     "dotenv": "^5.0.1",
     "koa": "^2.5.1",
     "memory-fs": "^0.4.1",
-    "modularscale-helpers": "^1.0.2",
+    "modularscale-helpers": "^1.1.1",
     "postcss": "^6.0.22",
+    "postcss-functions": "^3.0.0",
     "postcss-import": "^11.1.0",
     "pug": "^2.0.3",
     "webpack": "^4.10.2"
