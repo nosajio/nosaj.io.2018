@@ -3,8 +3,9 @@ const { assetFromFS } = require('../compiler/compile-assets');
 const { log, error } = require('server/logging')('render-homepage');
 
 const renderHomepage = () => {
-  const view = getViewHTML('homepage/homepage');
   const css = assetFromFS('homepage.css');
+  const js = assetFromFS('main.js');
+  const view = getViewHTML('homepage/homepage', { css, js });
   return view;
 }
 
