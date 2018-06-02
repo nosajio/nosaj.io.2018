@@ -1,49 +1,97 @@
 const path = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const MemoryFS = require('memory-fs');
+const postcss = require('postcss');
 const { basedir, fromBase } = require('constants/paths');
 
 const { error, log } = require('server/logging')('compile-assets');
+
+const dev = process.env.ENV === 'development';
 
 // Initialise the memory filesystem where the assets will be stored
 // until they are needed in response to incoming requests.
 // * Keep out of scope so that memfs can act as a in memory cache for assets
 const memfs = new MemoryFS();
 
+// Plugins to apply to the postcss pipeline
+const postcssPlugins = [];
+
+
 /**
  * Retrieve an asset from filesystem
- * @param {...String} relativePaths The path from the output directory to
+ * @param {String[]} assetPath The path from the output directory to
  *                                  the requested file.
  */
-const assetFromFS = (...relativePaths) => {
-  const assetPath = fromBase('dist', ...relativePaths);
-  const assetString = memfs.readFileSync(assetPath).toString();
+const assetFromFS = assetPath => {
+  const assetString = memfs.readFileSync(`/${assetPath}`).toString();
   return assetString;
 }
 
+
 /**
- * Compile multiple bundles from multiple entry points
- * @param {...String} entries 
+ * Save an asset as a fake file in memory
+ * @param {String} filepath 
+ * @param {String} contents 
  */
-const bundleEntries = async (...entries) => {
-  const compileOps = entries.map(entry => bundleToMemory(entry));
-  return await Promise.all(compileOps);
+const assetToFS = (filepath, contents) => {
+  const filename = path.basename(filepath);
+  memfs.writeFileSync(`/${filename}`, contents);
 }
+
+
+/**
+ * Compile postcss css files to memory. Handles an array of entry points
+ * @param {String[]} entries - entry paths should be relative to project dir
+ */
+const cssToMemory = async entries => {
+  const postcssOps = entries.map(e => openFileAndPostcss(e));
+  const cssBundles = await Promise.all(postcssOps).catch(err => error(err));
+  try {
+    cssBundles.forEach(b => assetToFS(...b));
+  } catch(err) {
+    throw err;
+  }
+  return entries;
+}
+
+
+/**
+ * Open a css file and buffer the contents to postcss
+ * @param {String} filepath - Path to a css file to be compiiled
+ */
+const openFileAndPostcss = filepath => {
+  const pathFromBase = fromBase(filepath);
+  let fileContents;
+  try {
+    fileContents = fs.readFileSync(pathFromBase);
+  } catch(err) {
+    error('Couldn\'t open the css file for some reason');
+    return Promise.reject(err);
+  }
+  return postcss(postcssPlugins)
+      .process(fileContents, { from: pathFromBase })
+      .then(result => ([filepath, result.css]))
+}
+
 
 /**
  * Compile assets from entry point and return a Map of bundles
- * @param {String} entry
+ * @param {String|String[]} entry
  */
 const bundleToMemory = entry => new Promise(resolve => {
   
   // Setup the webpack options
   // TODO move this into a config file, split for prod/dev environments
   const options = {
-    mode: 'development',
+    mode: dev ? 'development' : 'production',
     entry,
+
     output: {
-      filename: `bundle-${entry}`,
-    }
+      // Don't mirror the machine's filesystem, start at root instead. It's only
+      // an in memory abstraction anyway
+      path: '/'
+    },
   };
 
   // Prime the webpack compiler and then configure and run it
@@ -60,10 +108,9 @@ const bundleToMemory = entry => new Promise(resolve => {
     const compileTime = stats.endTime - stats.startTime;
     log('Compiled assets in %sms', compileTime);
 
-    resolve(
-      assetFromFS(`bundle-${entry}`)
-    );
+    resolve();
   });
 });
 
-module.exports = { assetFromFS, bundleToMemory, bundleEntries }
+
+module.exports = { assetFromFS, bundleToMemory, cssToMemory }
