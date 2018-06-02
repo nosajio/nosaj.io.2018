@@ -6,7 +6,8 @@ const { error, log } = require('server/logging')('compile-postcss');
 
 // Plugins to apply to the postcss pipeline
 const postcssPlugins = [
-  require('autoprefixer')
+  require('autoprefixer'),
+  require('postcss-import'),
 ];
 
 /**
