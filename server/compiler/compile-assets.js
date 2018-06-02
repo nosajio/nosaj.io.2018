@@ -24,8 +24,12 @@ const postcssPlugins = [];
  *                                  the requested file.
  */
 const assetFromFS = assetPath => {
-  const assetString = memfs.readFileSync(`/${assetPath}`).toString();
-  return assetString;
+  try {
+    const assetString = memfs.readFileSync(`/${assetPath}`).toString();
+    return assetString;
+  } catch(err) {
+    throw err;
+  }
 }
 
 

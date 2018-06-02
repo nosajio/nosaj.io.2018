@@ -11,6 +11,7 @@ const { log, error } = require('server/logging')('server');
 
 const listenPort = process.env.PORT || 3012;
 
+const renderError = require('./renderers/errors/500');
 const renderHomepage = require('./renderers/homepage-renderer');
 
 const bootServer = async () => {
@@ -21,15 +22,22 @@ const bootServer = async () => {
 
 
   // Setup the one and only request handler
-  app.use(async ({request, response}) => {
+  app.use(async ctx => {
+    const { request, response } = ctx;
     // TODO if this gets to > a few routes, refactor into simple route => renderer function
     switch (request.url) {
       // Home route
       case '/':
-        response.body = renderHomepage();      
-        return;
-    }
-    return;
+        try {
+          response.body = renderHomepage();      
+        } catch (err) {
+          error('500 was thrown: %s', err);
+          ctx.status = 500;
+          ctx.body = renderError();
+        }
+        break;
+      }
+      return;
   });
 
   app.listen(listenPort);  
