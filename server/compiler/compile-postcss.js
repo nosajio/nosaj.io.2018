@@ -18,8 +18,8 @@ const postcssFns = {
 
 // Plugins to apply to the postcss pipeline
 const postcssPlugins = [
-  require('autoprefixer'),
   require('postcss-import'),
+  require('autoprefixer'),
   // require('postcss-css-variables'),
   require('postcss-functions')({ functions: postcssFns }),
 ];
