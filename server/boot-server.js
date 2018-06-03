@@ -21,7 +21,6 @@ const bootServer = async ({ css, js, staticPath }) => {
   await cssToMemory(css).catch(err => error(err));
 
   // Setup the static middleware, which will serve static assets from a directory
-  log(fromBase(staticPath))
   app.use( koaStatic(fromBase(staticPath)) )
 
   // Setup the one and only request handler
