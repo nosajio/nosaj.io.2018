@@ -6,7 +6,7 @@
  
 .grid-container {
   display: grid;
-  grid-template-columns: auto fit-content(1200px) auto;
+  grid-template-columns: auto fit-content( var(--max-width) ) auto;
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   min-height: 100vh;

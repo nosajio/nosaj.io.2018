@@ -1,0 +1,12 @@
+if posts
+  section.grid-section.posts
+    .posts-grid
+      each post in posts
+        article.posts-grid__post
+          .posts-grid__post-img
+            if post.coverImage 
+              img(src=post.coverImage)
+          .posts-grid__post-info
+            h2.posts-grid__post-title= post.title
+            .posts-grid__post-meta
+              span.posts-grid__post-meta-date= post.dateString

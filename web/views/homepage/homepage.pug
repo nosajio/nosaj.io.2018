@@ -2,7 +2,9 @@ doctype html
 html
   include /partials/head.pug
   body.homepage
+    include /partials/header.pug
     .grid-container
-      section.grid-section.opener
-        h1.opener__text I build websites & apps from scratch.
+      include ./sections/opener.pug
+      include ./sections/posts.pug
+      include ./sections/work.pug
     include /partials/scripts.pug

@@ -1,5 +1,9 @@
 @import '../../css/global.css';
 
+/* Homepage sections */
+@import './sections/opener.css';
+@import './sections/posts.css';
+
 /**
  * Homepage styles
  */
@@ -7,12 +11,4 @@
 body.homepage {
   background: #1A1C1E;
   color: white;
-}
-
-.opener {
-  
-}
-
-.opener__text {
-  font-size: srem(3);
 }

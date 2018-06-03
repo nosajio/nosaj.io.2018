@@ -33,7 +33,7 @@ const bootServer = async ({ css, js, staticPath }) => {
       // Home route
       case '/':
         try {
-          response.body = renderHomepage();
+          response.body = await renderHomepage();
         } catch (err) {
           error('500 was thrown: %s', err);
           ctx.status = 500;

@@ -2,6 +2,7 @@
 
 /* Global classes */
 @import './grid.css';
+@import './header.css';
 
 /* Base setup */
 *,
@@ -11,6 +12,10 @@
 }
 
 :root {
+  /* Layout vars */
+  --max-width: 1200px;
+  
+  /* Typography vars */
   --font-sans-serif: 'runda';
   --font-size: 112.5%; /* 18px by default */
   --font-weight-normal: 400;

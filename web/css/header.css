@@ -1,0 +1,16 @@
+.nosaj-header {
+  max-width: var(--max-width);
+  margin: srem(9) auto;
+  width: 100%;
+}
+
+.nosaj-header__logo {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+}
+
+.nosaj-header__logo > svg {
+  display: block;
+  width: 100%;
+}
