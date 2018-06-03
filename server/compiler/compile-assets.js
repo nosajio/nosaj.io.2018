@@ -46,6 +46,9 @@ const assetToFS = (filepath, contents) => {
 const cssToMemory = async entries => {
   const postcssOps = entries.map(e => openFileAndPostcss(e));
   const cssBundles = await Promise.all(postcssOps).catch(err => error(err));
+  if (! cssBundles || cssBundles.length === 0) {
+    return Promise.reject('Cannot bundle CSS to memory. This might be because there was a syntax error in your css.');
+  }
   try {
     cssBundles.forEach(b => assetToFS(...b));
   } catch(err) {

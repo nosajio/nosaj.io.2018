@@ -5,16 +5,23 @@ const { msopts, ms } = require('modularscale-helpers');
 
 const { error, log } = require('server/logging')('compile-postcss');
 
+// Configure modularscale plugin
+msopts({
+  scale: 1.222,
+  px: 18,
+});
+
 const postcssFns = {
-  scaleInit: opts => msopts(opts),
-  scale: e => ms(e),
+  s: e => ms(e),
+  srem: e => `${ms(e)}rem`,
 }
 
 // Plugins to apply to the postcss pipeline
 const postcssPlugins = [
   require('autoprefixer'),
   require('postcss-import'),
-  require('postcss-functions')(postcssFns),
+  // require('postcss-css-variables'),
+  require('postcss-functions')({ functions: postcssFns }),
 ];
 
 /**
