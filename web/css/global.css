@@ -1,7 +1,23 @@
 @import './reset.css';
 
+/* Global classes */
+@import './grid.css';
+
+/* Base setup */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+:root {
+  --font-sans-serif: 'runda';
+  --font-size: 112.5%; /* 18px by default */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+html {
+  font: var(--font-size)/1.4 var(--font-sans-serif);
 }

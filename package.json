@@ -16,9 +16,7 @@
     "pug": "^2.0.3",
     "webpack": "^4.10.2"
   },
-  "devDependencies": {
-    "file-loader": "^1.1.11"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "NODE_PATH=. node ./server",
     "dev": "NODE_PATH=. DEBUG=nosaj:* nodemon -L ./server --ignore ./dist -e js,css,json",

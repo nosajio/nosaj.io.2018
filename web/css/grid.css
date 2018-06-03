@@ -1,0 +1,18 @@
+/**
+ * Grid 
+ * Uses CSS grid api to control layouts
+ * Great resource on CSS grid: https://css-tricks.com/snippets/css/complete-guide-grid/
+ */
+ 
+.grid-container {
+  display: grid;
+  grid-template-columns: auto fit-content(1200px) auto;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  min-height: 100vh;
+}
+
+.grid-section {
+  grid-column: 2;
+  width: 1200px;
+}

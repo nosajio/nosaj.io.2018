@@ -1,5 +1,18 @@
 @import '../../css/global.css';
 
+/**
+ * Homepage styles
+ */
+
 body.homepage {
   background: #1A1C1E;
+  color: white;
+}
+
+.opener {
+  
+}
+
+.opener__text {
+  font-size: srem(3);
 }
