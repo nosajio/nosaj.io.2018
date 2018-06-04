@@ -1,5 +1,7 @@
-const hello = () => {
-  console.log(['Hello', 'Nosaj']);
+import runOpener from './sections/opener';
+
+const initHomepage = () => {
+  runOpener();
 }
 
-hello();
+initHomepage()

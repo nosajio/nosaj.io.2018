@@ -1,0 +1,22 @@
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: srem(7);
+}
+
+  .posts-grid__post {
+
+  }
+
+  .posts-grid__post-img {}
+
+  .posts-grid__post-info {}
+
+  .posts-grid__post-title {
+    font-size: srem(2);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .posts-grid__post-meta {}
+
+    .posts-grid__post-meta-date {}    

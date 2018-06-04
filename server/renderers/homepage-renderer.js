@@ -7,8 +7,8 @@ const renderHomepage = async () => {
   const css   = assetFromFS('homepage.css');
   const js    = assetFromFS('main.js');
   const posts = await getPosts();
-  const view  = getViewHTML('homepage/homepage', { css, js, posts });
+  const view  = getViewHTML('homepage/homepage', { css, js, posts: posts.slice(0, 2) });
   return view;
 }
 
-module.exports = renderHomepage;
+module.exports = renderHomepage

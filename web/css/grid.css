@@ -7,7 +7,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: auto fit-content( var(--max-width) ) auto;
-  grid-gap: 10px;
+  grid-gap: 0;
   grid-auto-rows: minmax(100px, auto);
   min-height: 100vh;
 }
@@ -15,4 +15,7 @@
 .grid-section {
   grid-column: 2;
   width: 1200px;
+  /* Compensate for absolutely positioned elements like the art */
+  position: relative;
+  z-index: 100;
 }

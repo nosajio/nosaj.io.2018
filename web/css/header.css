@@ -7,7 +7,7 @@
 .nosaj-header__logo {
   display: block;
   width: 100%;
-  max-width: 112px;
+  max-width: srem(4);
 }
 
 .nosaj-header__logo > svg {

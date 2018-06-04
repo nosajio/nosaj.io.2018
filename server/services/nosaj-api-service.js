@@ -4,7 +4,11 @@ const nosajApiUrl = require('constants/urls').nosajApi;
 
 const getEndpointUrl = (path) => `${nosajApiUrl}/${path}`;
 
-const getPost = slug => { }
+const getPost = async slug => { 
+  const postEndpoint = getEndpointUrl(`posts/${slug}`);
+  const post = await axios.get(postEndpoint);
+  return post.data;
+}
 
 const getPosts = async () => {
   const postsEndpoint = getEndpointUrl('posts')
