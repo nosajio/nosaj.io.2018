@@ -2,67 +2,64 @@ import Two from 'two.js';
 
 const el = el => document.querySelector(el);
 
-const getLogo = () => el('.nosaj-logo');
+class MatrixDot {
+  constructor(radius, x, y, stage) {
+    this.shape = stage.makeCircle(x, y, radius).center();
+    this.resetShape();
+  }
 
+  // Remove styling and defaults
+  resetShape() {
+    this.shape.noStroke();
+  }
+  
+  // Set the color to new value
+  setColor(color) {
+    this.shape.fill = color;
+  }
 
-const addLogoShape = stage => {
-  const logoEl = getLogo();
-  const logoShape = stage.interpret(logoEl).center();
-  return logoShape;
-}
-
-const rc = () => Math.random() * 255;
-
-const getFullScreenScale = (a, stage) => {
-  const size = a.getBoundingClientRect();
-  return stage.width / size.width;
-}
-
-const drawLetter = (letter, stage) => {
-  // Create a shape to travel along the path
-  const traveller = stage.makeCircle(0, 0, 2);
-  traveller.fill = `rgb(${rc()}, ${rc()}, ${rc()})`;
-  traveller.noStroke();
-  // letter.stroke = '#53585F';
-
-  letter.getPointAt(Math.random(), traveller.translation);
-  traveller.translation.addSelf(letter.translation);
-  return [letter, traveller];
-}
-
-const animateNosajLogo = stage => {
-  stage.bind('update', frame => {
-    stage.clear();
+  // Changes the color in a smooth transition
+  changeColor() {
     
-    const logoAnimGroup = addLogoShape(stage).center();
-    logoAnimGroup.noStroke();
-
-    logoAnimGroup.translation.set(stage.width/2, stage.height/2);
-
-    const N = logoAnimGroup.children[0].children[0];
-    const O = logoAnimGroup.children[0].children[1];
-    const SA = logoAnimGroup.children[0].children[2];
-    const J = logoAnimGroup.children[0].children[3];
-
-    const letters = [N, O, SA, J];
-    const dotsGroup = stage.makeGroup().center();
-
-    letters.forEach(l => {
-      dotsGroup.add(...drawLetter(l, stage));
-    });
-
-    dotsGroup.translation.set(stage.width / 2, stage.height / 2);
-    // dotsGroup.scale = getFullScreenScale(logoAnimGroup, stage);
-  });
-  stage.play();
+  }
 }
 
+// Get the position of a node from an index
+const pos = (i, gap, gapDivide=3) => i * gap + gap / gapDivide;
 
-// For real implementation starts here
+/**
+ * Create a row of nodes and return them
+ * @param {Number} y 
+ * @param {Number} width 
+ * @param {Number} nodeSize 
+ * @param {Object} stage 
+ * @returns {}
+ */
+const createRowOfNodes = (y, width, gapSize, nodeSize, stage) => {
+  const totalNodes = Math.round(width / gapSize);
+  const rowOfNodes = [];
+  for (let i=0; i < totalNodes; i++) {
+    const x = pos(i, gapSize);
+    const currentNode = new MatrixDot(nodeSize/2, x, y, stage);
+    rowOfNodes.push(currentNode);
+  }
+  return rowOfNodes;
+}
 
+const createMatrix = stage => {
+  const w = stage.width;
+  const h = stage.height;
+  const nodeSize = 15;
+  const gap = nodeSize * 4;
+  const rowsCount = Math.round(stage.height / gap);
+  const matrix = stage.makeGroup().center();
+  for (let i=0; i < rowsCount; i++) {
+    const y = pos(i, gap);
+    matrix.add(...createRowOfNodes(y, w, gap, nodeSize, stage));
+  }
+}
 
-
-const nosajLogoArt = () => {
+const nosajMatrixDisplay = () => {
   const stageEl = el('.opener-art');
 
   // Setup the Two.js scene
@@ -74,25 +71,14 @@ const nosajLogoArt = () => {
   });
   stage.appendTo(stageEl);
 
+  createMatrix(stage);
+
+  stage.update();
   
-  // logo.children.forEach(ch => {
-  //   ch.children.forEach(s => {
-  //     // console.log(s);
-      
-  //     s.vertices.forEach(a => {
-  //       // console.log(a);
-        
-  //     });
-  //   });
-  // });
-  
-  // Animate the logo
-  // animateNosajLogo(stage);
-  // stage.update();
 }
 
 const opener = () => {
-  nosajLogoArt();
+  nosajMatrixDisplay();
 }
 
 export default opener
