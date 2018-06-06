@@ -22,15 +22,20 @@ const driftingBubbles = particles => {
   const draw = () => {
     frame++;
 
-    const nextFrame = () => requestAnimationFrame(() => draw());
-     
-    if (particles.length > 5) {
-      return nextFrame();
+    const nextFrame = () => {
+      particles.update();
+      requestAnimationFrame(() => draw())
     }
 
-    particles.create(particles.stage.width/2, particles.stage.height/2, 5);
+    particles.move();    
     
-    particles.update();
+    if (particles.length >= 15) {
+      return nextFrame();
+    }
+    
+    const size = Math.max(Math.random() * 10, 3);
+    particles.create(Math.random() * particles.stage.width, particles.stage.height + size, size);
+
     nextFrame();
   }
   draw();
