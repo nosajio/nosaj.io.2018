@@ -1,34 +1,9 @@
-import { Matrix, getNodeAt } from './matrix';
+import Two from 'two.js';
+import { ParticleScene } from './particles';
 
 const el = el => document.querySelector(el);
 
-const sineMeUp = (matrix, frame) => {
-  const rows = matrix.rows;
-  const cols = matrix.cols;
-  matrix.reset();
-  const pos = (frame);
-  const mod = (frame / 4) % 100;
-
-  const sine = (pos=0, amp=2, size=4, color='blue') => {
-    matrix.each((node, index) => {
-      const x = index % cols;
-      const y = Math.round(rows / 2 + size * Math.sin((x + pos) / amp));
-      if (node.position.x === x && node.position.y === y) {
-        node.setColor(color);
-      }
-    });
-  }
-
-  sine(pos, 2, 4, 'yellow');
-  
-  matrix.update();
-}
-
-const gradMeUp = () => {
-
-}
-
-const nosajMatrixDisplay = () => {
+const init = () => {
   const stageEl = el('.opener-art');
 
   // Setup the Two.js scene
@@ -39,26 +14,32 @@ const nosajMatrixDisplay = () => {
     type: Two.Types.canvas,
   });
   stage.appendTo(stageEl);
+  return stage;
+}
 
-  // const configuration = getConfiguration();
-  const size = 20;
-
-  const matrix = new Matrix(stage, size);
-
+const driftingBubbles = particles => {
   let frame = 1;
   const draw = () => {
-    sineMeUp(matrix, frame); 
-    // gradMeUp(matrix, frame);
-    frame ++;
-    requestAnimationFrame(() => draw())
-  }
-  
-  draw()
+    frame++;
 
+    const nextFrame = () => requestAnimationFrame(() => draw());
+     
+    if (particles.length > 5) {
+      return nextFrame();
+    }
+
+    particles.create(particles.stage.width/2, particles.stage.height/2, 5);
+    
+    particles.update();
+    nextFrame();
+  }
+  draw();
 }
 
 const opener = () => {
-  nosajMatrixDisplay();
+  const stage = init();
+  const particles = new ParticleScene(stage);
+  driftingBubbles(particles);
 }
 
 export default opener
