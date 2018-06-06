@@ -1,7 +1,9 @@
 import Two from 'two.js';
 import { ParticleScene } from './particles';
 
+// Util
 const el = el => document.querySelector(el);
+const randomIndex = arr => arr[Math.round(Math.random() * (arr.length - 1))]
 
 const init = () => {
   const stageEl = el('.opener-art');
@@ -19,32 +21,38 @@ const init = () => {
 
 const driftingBubbles = particles => {
   const maxShapes = 15;
-  let frame = 1;
   const clrs = ['#ccc', '#ddd', '#fff', '#555'];
-  // const clrs = ['#FCFAF4', '#FFEFBF', '#D1E8F9', '#F7ADAD'];
-  const draw = () => {
-    const particlesColor = clrs[Math.round(Math.random() * (clrs.length - 1))];
-    frame++;
 
+  const types = ParticleScene.Types;
+  // const clrs = ['#FCFAF4', '#FFEFBF', '#D1E8F9', '#F7ADAD'];
+  
+  const draw = () => {
+    
+    // Update the particle scene instance and then call requestAnimFrame...
     const nextFrame = () => {
       particles.update();
       requestAnimationFrame(() => draw())
     }
-
-    particles.move();    
     
+    // This moves all particles in the scene by calling their own 'move' methods
+    particles.move();
+    
+    // Advance to the next frame early when there are already enough 
+    // shapes in scene
     if (particles.length >= maxShapes) {
       return nextFrame();
     }
     
-    const types = ['circle', 'square', 'triangle'];
-    const size = Math.max(Math.random() * 50, 10);
-    const particleX = Math.random() * particles.stage.width;
-    const particleY = particles.stage.height + size;
-    const shapeType = types[Math.round(Math.random() * (types.length - 1))];
+    // Configure the new shape and then make it
+    const size          = Math.max(Math.random() * 50, 10);
+    const particleX     = Math.random() * particles.stage.width;
+    const particleY     = particles.stage.height + size;
+    const shapeType     = randomIndex(types);
+    const particleColor = randomIndex(clrs);
     
-    particles.create(shapeType, particleX, particleY, size, particlesColor);
+    particles.create(shapeType, particleX, particleY, size, particleColor);
 
+    // Advance to the next frame
     nextFrame();
   }
   draw();

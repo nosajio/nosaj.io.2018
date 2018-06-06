@@ -87,6 +87,8 @@ export class ParticleScene {
     this.particles = [];
   }
 
+  static get Types() { return ['circle', 'square', 'triangle'] };
+
   /**
    * Retruns the number of particles currently in scene
    */
