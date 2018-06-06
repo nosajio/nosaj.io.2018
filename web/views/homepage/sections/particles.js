@@ -1,49 +1,76 @@
+import { Polygon } from 'two.js';
+
 class Particle {
   /**
-   * Create a new particls
+   * Create a new particle
+   * @param {String} type - one of 'circle', 'square', 'triangle'   *
    * @param {TwoInstance} stage 
    * @param {Number} x 
    * @param {Number} y 
    * @param {Number} radius 
    * @param {String} color 
    */
-  constructor(stage, x, y, radius, color) {
-    // Create the particle shape and add to the instance
-    this.shape = stage.makeCircle(x, y, radius).center();
-
+  constructor(type, stage, x, y, radius, color) {
     // Physics state held by the particle its self
     this.radius = radius;
-    this.inertia = radius;
+    this.inertia = radius / 10;
+    this.rotation = 0;
     this.x = x;
     this.y = y;
+
+    // Create the particle shape and add to the instance
+    this.shape = this._makeShape(type, stage, x, y, radius);
     
     // Reset back to basic a shape
-    this.reset(color);
+    this.reset(color, radius);
   }
 
-  reset(color='white') {
-    this.shape.noStroke();
-    this.shape.fill = color;
+  reset(color='black', radius) {
+    // this.shape.noStroke();
+    this.shape.noFill();
+    this.shape.stroke = color;
+    this.shape.linewidth = Math.max(Math.round(radius/5), 3);
   }
 
   /**
    * Move this particle
-   * @param {Number} drift lateral movement quantifier
    */
-  move(drift=0) {
-    const wl = this.inertia * 10;
-    const amp = Math.min(this.radius * 2, 10);
-    const newX = this.x + amp * Math.cos(this.y/wl);
-    const newY = this.y - this.inertia;
-    this.inertia += this.radius/15;
-    this._move(newX, newY);
+  move() {
+    const dampen = 2;
+    const wl = this.inertia > 15 ? this.inertia * 10 : this.radius * 1000;
+    const amp = Math.min(this.radius / 5, 2);
+    this.inertia += (this.radius / 3000) + (Math.random() * (this.radius / 2000));
+    const newX = this.x + amp * Math.sin((this.y / wl) * Math.PI * 2);
+    const newY = this.y - this.inertia / dampen;
+    const newRotation = Math.sin(this.inertia / amp / 4) * Math.PI * 2;
+    this._move(newX, newY, newRotation);
   }
 
   // Internal move function so that references can also be set
-  _move(x, y) {
+  _move(x, y, rotation) {
     this.shape.translation.set(x, y)
+    this.shape.rotation = rotation;
+    this.rotation = rotation;
     this.x = x;
     this.y = y;
+  }
+
+  // Internal shape maker so the particle can be one of many shapes
+  _makeShape(type, stage, x, y, radius) {
+    let shape;
+    switch (type) {
+      case 'circle':
+        shape = stage.makeCircle(x, y, radius).center()
+        break;
+      case 'square':
+        shape = stage.makeRectangle(x, y, radius, radius);
+        break;
+      case 'triangle':
+        shape = new Polygon(x, y, radius, 3);
+        stage.add(shape);
+        break;
+    }
+    return shape;
   }
 }
 
@@ -79,13 +106,14 @@ export class ParticleScene {
 
   /**
    * Create a new particle and add it to the scene
+   * @param {String} type - one of 'circle', 'square', 'triangle' 
    * @param {Number} x 
    * @param {Number} y 
    * @param {Number} size 
    */
-  create(x, y, size=5) {
+  create(type, x, y, size=5, color) {
     const { stage } = this;
-    const newParticle = new Particle(stage, x, y, size);
+    const newParticle = new Particle(type, stage, x, y, size, color);
     this.particles.push(newParticle);
   }
 

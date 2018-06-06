@@ -18,8 +18,12 @@ const init = () => {
 }
 
 const driftingBubbles = particles => {
+  const maxShapes = 15;
   let frame = 1;
+  const clrs = ['#ccc', '#ddd', '#fff', '#555'];
+  // const clrs = ['#FCFAF4', '#FFEFBF', '#D1E8F9', '#F7ADAD'];
   const draw = () => {
+    const particlesColor = clrs[Math.round(Math.random() * (clrs.length - 1))];
     frame++;
 
     const nextFrame = () => {
@@ -29,12 +33,17 @@ const driftingBubbles = particles => {
 
     particles.move();    
     
-    if (particles.length >= 15) {
+    if (particles.length >= maxShapes) {
       return nextFrame();
     }
     
-    const size = Math.max(Math.random() * 10, 3);
-    particles.create(Math.random() * particles.stage.width, particles.stage.height + size, size);
+    const types = ['circle', 'square', 'triangle'];
+    const size = Math.max(Math.random() * 50, 10);
+    const particleX = Math.random() * particles.stage.width;
+    const particleY = particles.stage.height + size;
+    const shapeType = types[Math.round(Math.random() * (types.length - 1))];
+    
+    particles.create(shapeType, particleX, particleY, size, particlesColor);
 
     nextFrame();
   }
