@@ -2,19 +2,30 @@ import { Matrix, getNodeAt } from './matrix';
 
 const el = el => document.querySelector(el);
 
-const generateFrame = (frame, matrix) => {
-  const colors = {
-    on: '#EFF443',
-    off: '#111'
+const sineMeUp = (matrix, frame) => {
+  const rows = matrix.rows;
+  const cols = matrix.cols;
+  matrix.reset();
+  const pos = (frame);
+  const mod = (frame / 4) % 100;
+
+  const sine = (pos=0, amp=2, size=4, color='blue') => {
+    matrix.each((node, index) => {
+      const x = index % cols;
+      const y = Math.round(rows / 2 + size * Math.sin((x + pos) / amp));
+      if (node.position.x === x && node.position.y === y) {
+        node.setColor(color);
+      }
+    });
   }
-  const rowsCount = matrix.length;
-  const colsCount = matrix[0].length;
-  const mod = frame % rowsCount - 1;
-  const sine = Math.sin(mod * Math.PI);
-  const normalisedSine = Math.round(mod);
-  console.log(normalisedSine, mod)
-  const node = getNodeAt(normalisedSine - 1, mod, matrix);
-  node.changeColor(colors.on);
+
+  sine(pos, 2, 4, 'yellow');
+  
+  matrix.update();
+}
+
+const gradMeUp = () => {
+
 }
 
 const nosajMatrixDisplay = () => {
@@ -30,16 +41,20 @@ const nosajMatrixDisplay = () => {
   stage.appendTo(stageEl);
 
   // const configuration = getConfiguration();
-  const size = 10;
+  const size = 20;
 
   const matrix = new Matrix(stage, size);
 
-  // playConfiguration(matrix, configuration);
-  stage.bind('update', (frame) => {
-    generateFrame(frame, matrix);
-  }).play();
+  let frame = 1;
+  const draw = () => {
+    sineMeUp(matrix, frame); 
+    // gradMeUp(matrix, frame);
+    frame ++;
+    requestAnimationFrame(() => draw())
+  }
+  
+  draw()
 
-  // stage.update();
 }
 
 const opener = () => {
