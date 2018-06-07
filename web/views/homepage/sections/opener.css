@@ -10,6 +10,21 @@
   opacity: .5;
 }
 
+.opener-art::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 4vh;
+  /**
+   * The below gradient is just black to transparent with dithering added. This
+   * plugin will be useful if this becomes a repeatad pattern:
+   * https://github.com/larsenwork/postcss-easing-gradients
+   */
+  background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.028) 11.9%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.216) 32.2%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.5) 50%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.784) 67.8%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.972) 88.1%, hsl(0, 0%, 0%) 100%);
+}
+
 .opener__text {
   font-size: srem(3);
 }
