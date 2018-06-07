@@ -21,10 +21,9 @@ const init = () => {
 
 const driftingBubbles = particles => {
   const maxShapes = 15;
-  const clrs = ['#ccc', '#ddd', '#fff', '#555'];
+  const clrs = ['#bbb', '#444', '#777', '#555'];
 
   const types = ParticleScene.Types;
-  // const clrs = ['#FCFAF4', '#FFEFBF', '#D1E8F9', '#F7ADAD'];
   
   const draw = () => {
     
@@ -45,8 +44,9 @@ const driftingBubbles = particles => {
     
     // Configure the new shape and then make it
     const size          = Math.max(Math.random() * 50, 10);
+    const offsetY       = Math.random() * 100 + size;
     const particleX     = Math.random() * particles.stage.width;
-    const particleY     = particles.stage.height + size;
+    const particleY     = particles.stage.height + offsetY;
     const shapeType     = randomIndex(types);
     const particleColor = randomIndex(clrs);
     

@@ -29,7 +29,7 @@ class Particle {
     // this.shape.noStroke();
     this.shape.noFill();
     this.shape.stroke = color;
-    this.shape.linewidth = Math.max(Math.round(radius/5), 3);
+    this.shape.linewidth = Math.max(Math.round(radius/10), 3);
   }
 
   /**
@@ -37,12 +37,12 @@ class Particle {
    */
   move() {
     const dampen = 2;
-    const wl = this.inertia > 15 ? this.inertia * 10 : this.radius * 1000;
+    const wl = this.inertia > 15 ? this.inertia * 20 : this.radius * 1000;
     const amp = Math.min(this.radius / 5, 2);
     this.inertia += (this.radius / 3000) + (Math.random() * (this.radius / 2000));
-    const newX = this.x + amp * Math.sin((this.y / wl) * Math.PI * 2);
+    const newX = this.x + amp * Math.sin((this.y / wl) * Math.PI * 40);
     const newY = this.y - this.inertia / dampen;
-    const newRotation = Math.sin(this.inertia / amp / 4) * Math.PI * 2;
+    const newRotation = Math.sin(this.inertia / amp / 4) * Math.PI * 3;
     this._move(newX, newY, newRotation);
   }
 
@@ -87,7 +87,7 @@ export class ParticleScene {
     this.particles = [];
   }
 
-  static get Types() { return ['circle', 'square', 'triangle'] };
+  static get Types() { return ['circle', 'square'] };
 
   /**
    * Retruns the number of particles currently in scene
