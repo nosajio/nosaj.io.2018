@@ -1,5 +1,3 @@
-
-
 .opener-art {
   position: absolute;
   top: 0;
@@ -25,6 +23,33 @@
   background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.028) 11.9%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.216) 32.2%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.5) 50%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.784) 67.8%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.972) 88.1%, hsl(0, 0%, 0%) 100%);
 }
 
-.opener__text {
-  font-size: srem(3);
+.opener {
+  min-height: 100vh;
 }
+
+.opener__text {
+  margin-top: 20vh;
+  font-size: srem(8);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.opener__intro {
+  display: flex;
+  align-items: flex-start;
+  margin-top: srem(8);
+  max-width: srem(19);
+}
+  
+  .opener__intro .jason-img {
+    display: block;
+    margin-right: srem(7);
+    width: 100%;
+    height: auto;
+    max-width: srem(9);
+    border-radius: 100%;
+  }
+
+  .opener__intro p + p {
+    margin-top: srem(2); 
+  }

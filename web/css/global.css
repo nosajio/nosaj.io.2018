@@ -16,6 +16,7 @@
   --max-width: 1200px;
   
   /* Typography vars */
+  --font-mono: 'fira-mono';
   --font-sans-serif: 'runda';
   --font-size: 112.5%; /* 18px by default */
   --font-weight-normal: 400;
@@ -25,4 +26,11 @@
 
 html {
   font: var(--font-size)/1.4 var(--font-sans-serif);
+}
+
+/* Typography globals */
+.mono {
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  font-weight: 400;
 }
