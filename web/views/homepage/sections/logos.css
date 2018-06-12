@@ -1,0 +1,24 @@
+.logos {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5vw;
+}
+
+.logos__logo {
+
+}
+
+.logos__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (--media-medium-up) {
+  .logos__logo {
+    max-width: 10%;
+  }
+}

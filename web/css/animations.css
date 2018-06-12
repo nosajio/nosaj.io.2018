@@ -1,0 +1,11 @@
+/** 
+ * Animations are variable depending on element size – large elements 
+ * move slowly, and small ones quickly.
+ */
+
+@keyframes fade-in-from-left-medium {
+  from {
+    transform: translateX(-20vw);
+    opacity: 0;
+  }
+}

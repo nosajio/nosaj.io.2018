@@ -2,6 +2,7 @@
 
 /* Homepage sections */
 @import './sections/opener.css';
+@import './sections/logos.css';
 @import './sections/posts.css';
 
 /**

@@ -25,11 +25,12 @@
 
 .opener {
   min-height: 100vh;
+  max-width: 1000px;
 }
 
 .opener__text {
   margin-top: 20vh;
-  font-size: srem(8);
+  font-size: srem(7);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
 }
@@ -37,19 +38,19 @@
 .opener__intro {
   display: flex;
   align-items: flex-start;
-  margin-top: srem(8);
-  max-width: srem(19);
+  margin-top: srem(6);
+  max-width: srem(16);
 }
   
   .opener__intro .jason-img {
     display: block;
-    margin-right: srem(7);
+    margin-right: srem(6);
     width: 100%;
     height: auto;
-    max-width: srem(9);
+    max-width: srem(8);
     border-radius: 100%;
   }
 
   .opener__intro p + p {
-    margin-top: srem(2); 
+    margin-top: srem(1); 
   }

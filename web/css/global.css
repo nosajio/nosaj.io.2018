@@ -1,6 +1,11 @@
 @import './reset.css';
 
+/* Root */
+@import './root.css';
+
 /* Global classes */
+@import './breakpoints.css';
+@import './animations.css';
 @import './grid.css';
 @import './header.css';
 
@@ -9,19 +14,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-:root {
-  /* Layout vars */
-  --max-width: 1200px;
-  
-  /* Typography vars */
-  --font-mono: 'fira-mono';
-  --font-sans-serif: 'runda';
-  --font-size: 112.5%; /* 18px by default */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
 }
 
 html {

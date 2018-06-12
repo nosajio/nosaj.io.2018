@@ -13,6 +13,7 @@
     "memory-fs": "^0.4.1",
     "modularscale-helpers": "^1.1.2",
     "postcss": "^6.0.22",
+    "postcss-custom-media": "^6.0.0",
     "postcss-functions": "^3.0.0",
     "postcss-import": "^11.1.0",
     "pug": "^2.0.3",

@@ -1,0 +1,17 @@
+/* The document root element */
+
+:root {
+  /* Layout vars */
+  --max-width: 1200px;
+  
+  /* Typography vars */
+  --font-mono: 'fira-mono';
+  --font-sans-serif: 'runda';
+  --font-size: 112.5%; /* 18px by default */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Easing funcs */
+  --easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
