@@ -1,3 +1,4 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Some helpers
 
 // How far has the mouse moved from given coords
@@ -34,24 +35,30 @@ const changeSlide = xDiff => {
   return isNegative ? 1 : -1;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
 export default class SlideGallery {
+
   constructor(el) {
-
-    // Hold onto the slide container
+    // Keep a ref to the slides container
     this.el = el;
-
-    const slidesCount = el.children.length;
     
     // Setup the internal state
     this.state = {
-      slidesCount,
-      active: 0,       // Index of the slide that is in view
-      diffX:  0,       // How far has the slide been dragged from it's origin?
+      slidesCount: el.children.length,
+      active:      0,                     // Index of the slide that is in view
+      diffX:       0,                     // How far has the slide been dragged from it's origin?
     }
 
+    // Add the interactivity to the slideshow
     this._attachMoveEvents();
   }
 
+  /**
+   * Safely update the active state without going outside the limits
+   * @param {Number} n The next index
+   */
   updateIndex(n) {
     // When at the start or the end, don't advance into the darkness
     if (n < 0 || n >= this.state.slidesCount) {
@@ -88,7 +95,6 @@ export default class SlideGallery {
     this._translateSlide(by + originX);
   }
 
-  
   /**
    * Translate the slides to the origin based on the active index
    */
@@ -114,29 +120,26 @@ export default class SlideGallery {
     }
 
     const handleTouchEnd = event => {
-      touchDown = false;
-
+      // Decide whether to advance the slideshow or return to original position
       const changeWeight = changeSlide(this.state.diffX);
       this.updateIndex(this.state.active + changeWeight);
       this._returnToOrigin();
       this._cssTouchClass(false);
-      
       // Reset transient state items
+      touchDown = false;
       this.state.diffX = 0;
     }
 
     const handleTouchMove = event => {
-      if (! touchDown) {
-        return;
-      }
-      
+      if (! touchDown) return;
+      // Calculate how much to move the slide based on cursor movement
       const movedTo = [event.clientX, event.clientY]
       const [diffX] = diffCoords(touchOrigin, movedTo);
-
-      if (diffX === 0) return;
-      
-      this._translateFromOrigin(this.state.active, diffX);
       this.state.diffX = diffX;
+      // In the unlikely event that there was no movement, just return
+      if (diffX === 0) return;
+      // Do the moving 
+      this._translateFromOrigin(this.state.active, diffX);
     }
     
     // Use built in touch events when possible
