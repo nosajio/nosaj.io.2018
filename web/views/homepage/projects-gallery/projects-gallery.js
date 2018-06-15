@@ -61,6 +61,16 @@ export default class SlideGallery {
   }
 
   /**
+   * Add a class when touch is in progress so that conflicting effects can be
+   * paused until touch has ended.
+   * @param {Boolean} add true to add the classname, false to remove it
+   */
+  _cssTouchClass(add=false) {
+    const className = 'touch';
+    add ? this.el.classList.add(className) : this.el.classList.remove(className);
+  }
+
+  /**
    * Move slide on the X axis
    * @param {Number} by How many pixels to move the slide
    */
@@ -79,12 +89,19 @@ export default class SlideGallery {
   }
 
   
+  /**
+   * Translate the slides to the origin based on the active index
+   */
   _returnToOrigin() {
     const { active } = this.state;
     const origin = originForIndex(active);
     this._translateSlide(origin);
   }
 
+  /**
+   * Configure and attach all the mouse and touch events needed to interract
+   * with the slideshow.
+   */
   _attachMoveEvents() {
     let touchOrigin = [0, 0];
     let touchDown = false;
@@ -93,19 +110,19 @@ export default class SlideGallery {
     const handleTouchStart = event => {
       touchDown = true;
       touchOrigin = [event.clientX, event.clientY];
+      this._cssTouchClass(true);
     }
 
     const handleTouchEnd = event => {
       touchDown = false;
 
-
       const changeWeight = changeSlide(this.state.diffX);
       this.updateIndex(this.state.active + changeWeight);
       this._returnToOrigin();
+      this._cssTouchClass(false);
       
       // Reset transient state items
       this.state.diffX = 0;
-      console.log(this.state);
     }
 
     const handleTouchMove = event => {
@@ -116,13 +133,10 @@ export default class SlideGallery {
       const movedTo = [event.clientX, event.clientY]
       const [diffX] = diffCoords(touchOrigin, movedTo);
 
-      if (diffX === 0) {
-        return;
-      }
+      if (diffX === 0) return;
       
       this._translateFromOrigin(this.state.active, diffX);
       this.state.diffX = diffX;
-      
     }
     
     // Use built in touch events when possible
@@ -137,7 +151,4 @@ export default class SlideGallery {
     this.el.addEventListener('touchmove', handleTouchMove);
     this.el.addEventListener('mousemove', handleTouchMove);
   }
-
-  
-  
 }

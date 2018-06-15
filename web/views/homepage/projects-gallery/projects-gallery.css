@@ -12,7 +12,13 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   width: auto;
+  transition: all 300ms;
 }
+
+  /* When the gallery is being interracted with, don't allow transitions. */
+  .projects-gallery__content.touch {
+    transition: none
+  }
 
 .projects-gallery__project {
   flex: 0 0 auto;
