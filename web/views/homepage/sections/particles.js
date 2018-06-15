@@ -3,7 +3,7 @@ import { Polygon } from 'two.js';
 class Particle {
   /**
    * Create a new particle
-   * @param {String} type - one of 'circle', 'square', 'triangle'   *
+   * @param {String} type - one of ParticleScene.Types
    * @param {TwoInstance} stage 
    * @param {Number} x 
    * @param {Number} y 

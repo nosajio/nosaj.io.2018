@@ -3,10 +3,11 @@ if posts
     .posts-grid
       each post in posts
         article.posts-grid__post
-          .posts-grid__post-img
-            if post.coverImage 
-              img(src=post.coverImage)
-          .posts-grid__post-info
-            h2.posts-grid__post-title= post.title
-            .posts-grid__post-meta
-              span.posts-grid__post-meta-date= post.dateString
+          a(href=`/r/${post.slug}`)
+            span.posts-grid__post-img
+              if post.coverImage 
+                img(src=post.coverImage)
+            span.posts-grid__post-info
+              h2.posts-grid__post-title= post.title
+              span.posts-grid__post-meta
+                span.posts-grid__post-meta-date= post.dateString

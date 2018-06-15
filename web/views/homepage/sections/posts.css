@@ -1,22 +1,40 @@
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  margin: srem(10) 0;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: srem(7);
 }
 
-  .posts-grid__post {
 
+
+.posts-grid__post-img, .posts-grid__post-info,   .posts-grid__post-meta {
+  display: block;
+}
+
+  .posts-grid__post {
+    text-align: center;
   }
 
-  .posts-grid__post-img {}
+  .posts-grid__post a { text-decoration: none; }
 
-  .posts-grid__post-info {}
+  .posts-grid__post-img {
+    width: 100%;
+    background: #ccc;
+    height: 140px;
+  }
+
+  .posts-grid__post-info {
+    margin-top: 1rem;
+  }
 
   .posts-grid__post-title {
-    font-size: srem(2);
+    font-size: srem(1);
     font-weight: var(--font-weight-medium);
   }
 
-  .posts-grid__post-meta {}
+  .posts-grid__post-meta {
+    margin-top: srem(-1);
+    font: srem(-1) var(--font-mono);
+  }
 
-    .posts-grid__post-meta-date {}    
+    .posts-grid__post-meta-date {}

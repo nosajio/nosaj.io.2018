@@ -14,7 +14,7 @@ body.homepage {
   color: white;
 }
 
-body.homepage a {
+a {
   color: white;
   text-decoration: underline;
 }
