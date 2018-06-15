@@ -1,15 +1,16 @@
 @import '../../css/global.css';
 
 /* Homepage sections */
-@import './sections/opener.css';
-@import './sections/logos.css';
-@import './sections/posts.css';
+@import './opener/opener.css';
+@import './logos/logos.css';
+@import './posts/posts.css';
+@import './projects-gallery/projects-gallery.css';
 
 /**
  * Homepage styles
  */
 
-body.homepage {
+.homepage {
   background: #000;
   color: white;
 }

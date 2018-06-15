@@ -1,9 +1,6 @@
 import Two from 'two.js';
 import { ParticleScene } from './particles';
-
-// Util
-const el = el => document.querySelector(el);
-const randomIndex = arr => arr[Math.round(Math.random() * (arr.length - 1))]
+import { el, randomIndex } from 'utils/helpers';
 
 const init = () => {
   const stageEl = el('.opener-art');

@@ -71,6 +71,13 @@ const bundleToMemory = entry => new Promise(resolve => {
     mode: dev ? 'development' : 'production',
     entry,
 
+    resolve: {
+      modules: [
+        fromBase('node_modules'),
+        fromBase('web'),
+      ]
+    },
+
     output: {
       // Don't mirror the machine's filesystem, start at root instead. It's only
       // an in memory abstraction anyway

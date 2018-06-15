@@ -1,0 +1,21 @@
+@import './lws.css';
+@import './jal.css';
+
+.projects-gallery {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.projects-gallery__content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: auto;
+}
+
+.projects-gallery__project {
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 90vh;
+}

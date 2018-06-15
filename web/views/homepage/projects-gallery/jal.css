@@ -1,0 +1,7 @@
+.project--jal {
+  --project-color: #1973E6;
+  --project-text-color: white;
+  
+  background: var(--project-color);
+  color: var(--project-text-color);
+}
