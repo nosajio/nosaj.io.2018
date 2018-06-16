@@ -1,3 +1,5 @@
+
+
 .project--lws {
   --project-color: #F6E75E;
   --project-text-color: black;
@@ -5,3 +7,8 @@
   background: var(--project-color);
   color: var(--project-text-color);
 }
+
+/* Simplify the animations */
+.project--lws.not-in-view > * { opacity: 0; }
+.project--lws.in-view > * { animation: both 1 300ms from-top-medium ; }
+

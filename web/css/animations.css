@@ -1,11 +1,18 @@
 /** 
  * Animations are variable depending on element size – large elements 
- * move slowly, and small ones quickly.
+ * move over large arcs, and small ones over smaller arcs.
  */
 
 @keyframes fade-in-from-left-medium {
   from {
     transform: translateX(-20vw);
+    opacity: 0;
+  }
+}
+
+@keyframes from-top-medium {
+  from {
+    transform: translateY(-5vh);
     opacity: 0;
   }
 }

@@ -25,3 +25,12 @@
   width: 100%;
   min-height: 90vh;
 }
+
+.project-title {
+  font-size: srem(4);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.project-title--left { text-align: left; }
+.project-title--center { text-align: center; }

@@ -23,7 +23,7 @@ const changeSlide = xDiff => {
   let isNegative = xDiff < 0;
   // Tolerance fraction sets how far items must be dragged relative to the width
   // of the screen before a move should be triggered
-  const toleranceFr = 0.2;
+  const toleranceFr = 0.15;
 
   const totalWidth = document.body.getBoundingClientRect().width;
   const tolerance = totalWidth * toleranceFr;
@@ -34,6 +34,10 @@ const changeSlide = xDiff => {
   // ...otherwise decide which way to move based on the value of the diff
   return isNegative ? 1 : -1;
 }
+
+const addRemoveCssClass = (el, className, add=false) => 
+  add ? el.classList.add(className) : el.classList.remove(className);
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -51,6 +55,9 @@ export default class SlideGallery {
       diffX:       0,                     // How far has the slide been dragged from it's origin?
     }
 
+    // Add the initial active class to the slide in view
+    this._cssActiveClass(0)
+    
     // Add the interactivity to the slideshow
     this._attachMoveEvents();
   }
@@ -73,8 +80,31 @@ export default class SlideGallery {
    * @param {Boolean} add true to add the classname, false to remove it
    */
   _cssTouchClass(add=false) {
-    const className = 'touch';
-    add ? this.el.classList.add(className) : this.el.classList.remove(className);
+    addRemoveCssClass(this.el, 'touch', add)
+  }
+
+  /**
+   * Add / remove class on slide item depending on if it's in view or not
+   * @param {Number} index The index of the active item
+   * @param {Boolean} add 
+   */
+  _cssActiveClass(index) {
+    const inactiveClassName = 'not-in-view';
+    const activeClassName = 'in-view';
+
+    const active = el => {
+      addRemoveCssClass(el, inactiveClassName, false);
+      addRemoveCssClass(el, activeClassName, true);
+    }
+
+    const inactive = el => {
+      addRemoveCssClass(el, inactiveClassName, true);
+      addRemoveCssClass(el, activeClassName, false);
+    }
+    
+    Array.from(this.el.children).forEach((el, i) => {
+      index === i ? active(el) : inactive(el);
+    });
   }
 
   /**
@@ -123,8 +153,10 @@ export default class SlideGallery {
       // Decide whether to advance the slideshow or return to original position
       const changeWeight = changeSlide(this.state.diffX);
       this.updateIndex(this.state.active + changeWeight);
-      this._returnToOrigin();
       this._cssTouchClass(false);
+      this._returnToOrigin();
+      // Wait for the transition to complete before switching to the active class
+      setTimeout(() => this._cssActiveClass(this.state.active), 300);
       // Reset transient state items
       touchDown = false;
       this.state.diffX = 0;

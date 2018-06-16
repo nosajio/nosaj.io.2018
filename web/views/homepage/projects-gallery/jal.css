@@ -5,3 +5,11 @@
   background: var(--project-color);
   color: var(--project-text-color);
 }
+
+.project--jal.not-in-view > * {
+  opacity: 0;
+}
+
+.project--jal.in-view .project-title {
+  animation: both 1 300ms from-top-medium ;
+}
