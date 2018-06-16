@@ -3,6 +3,28 @@
  * move over large arcs, and small ones over smaller arcs.
  */
 
+/* Move from a direction */
+
+@keyframes from-top-medium {
+  from {
+    transform: translateY(-5vh);
+  }
+}
+
+@keyframes from-left-medium {
+  from {
+    transform: translateX(-5vh);
+  }
+}
+
+@keyframes from-left-large {
+  from {
+    transform: translateX(-20vh);
+  }
+}
+
+/* Fade in from directions */
+
 @keyframes fade-in-from-left-medium {
   from {
     transform: translateX(-20vw);
@@ -10,9 +32,16 @@
   }
 }
 
-@keyframes from-top-medium {
+@keyframes fade-from-top-medium {
   from {
     transform: translateY(-5vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-left-medium {
+  from {
+    transform: translateX(-5vh);
     opacity: 0;
   }
 }

@@ -1,14 +1,75 @@
-
-
 .project--lws {
   --project-color: #F6E75E;
   --project-text-color: black;
   
   background: var(--project-color);
   color: var(--project-text-color);
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.project--lws a {
+  color: var(--project-text-color);
 }
 
 /* Simplify the animations */
 .project--lws.not-in-view > * { opacity: 0; }
-.project--lws.in-view > * { animation: both 1 300ms from-top-medium ; }
+.project--lws.in-view .map-decor { animation: both 1 200ms from-left-large; }
+.project--lws.in-view .lws-info { animation: both 1 300ms 400ms fade-from-top-medium; }
+.project--lws.in-view .lws-phone { animation: both 1 400ms 400ms fade-from-left-medium; }
 
+.map-decor {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat top left / auto 100% url('/work/lws/map-decor.png') ;
+}
+
+.lws-phone {
+  width: 346px;
+  height: 723px;
+  background: var(--project-text-color);
+  border-radius: 30px;
+  
+}
+
+.lws-phone__content {
+
+}
+
+.lws-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 770px;
+  text-align: center;
+}
+
+.lws-title {
+  
+}
+
+.lws-description {
+  margin-top: srem(4);
+  padding: 0 srem(2);
+}
+
+.lws-info .project-meta {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+@media (--media-medium-up) {
+  .lws-phone {
+    margin: srem(8) srem(9) srem(4) 0;
+  }
+  
+  .lws-info {
+    padding: srem(8) 0 srem(4);
+  }
+}

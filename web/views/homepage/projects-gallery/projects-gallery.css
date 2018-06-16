@@ -2,6 +2,7 @@
 @import './jal.css';
 
 .projects-gallery {
+  position: relative;
   overflow: hidden;
   width: 100%;
   max-width: 100vw;
@@ -23,7 +24,7 @@
 .projects-gallery__project {
   flex: 0 0 auto;
   width: 100%;
-  min-height: 90vh;
+  height: auto;
 }
 
 .project-title {
@@ -34,3 +35,29 @@
 
 .project-title--left { text-align: left; }
 .project-title--center { text-align: center; }
+
+.project-description {
+  font-size: 1.11rem;
+  line-height: 1.4;
+}
+
+/* Project meta sections */
+
+.project-meta {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template: 1fr 1fr / .6fr 1.4fr;
+  gap: srem(1) srem(4);
+  text-align: left;
+  font: .944rem/1.4 var(--font-mono);
+}
+
+.project-meta__item--large {
+  grid-row: span 2; 
+}
+
+.project-meta__title {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
