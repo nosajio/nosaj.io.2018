@@ -28,6 +28,7 @@
 }
 
 .project-title {
+  line-height: 1.2;
   font-size: srem(4);
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;

@@ -11,23 +11,49 @@
   }
 }
 
-@keyframes from-left-medium {
+@keyframes from-left-small {
   from {
     transform: translateX(-5vh);
   }
 }
 
-@keyframes from-left-large {
+@keyframes from-left-medium {
   from {
     transform: translateX(-20vh);
   }
 }
 
+@keyframes from-left-large {
+  from {
+    transform: translateX(-50vh);
+  }
+}
+
+@keyframes from-z-small {
+  from {
+    transform: scale(.7);
+  }
+}
+
 /* Fade in from directions */
 
-@keyframes fade-in-from-left-medium {
+@keyframes fade-from-left-small {
+  from {
+    transform: translateX(-5vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-left-medium {
   from {
     transform: translateX(-20vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-left-large {
+  from {
+    transform: translateX(-50vh);
     opacity: 0;
   }
 }
@@ -39,9 +65,16 @@
   }
 }
 
-@keyframes fade-from-left-medium {
+@keyframes fade-from-bottom-medium {
   from {
-    transform: translateX(-5vh);
+    transform: translateY(20vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-z-small {
+  from {
+    transform: scale(.9);
     opacity: 0;
   }
 }
