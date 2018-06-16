@@ -41,10 +41,6 @@
 }
 
 .lws-info {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
   max-width: 770px;
   text-align: center;

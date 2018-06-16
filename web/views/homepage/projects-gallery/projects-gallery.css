@@ -1,11 +1,11 @@
 @import './lws.css';
 @import './jal.css';
+@import './rip.css';
 
 .projects-gallery {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 100vw;
+  width: 100vw;
 }
 
 .projects-gallery__content {
@@ -22,9 +22,17 @@
   }
 
 .projects-gallery__project {
+  position: relative;
   flex: 0 0 auto;
-  width: 100%;
   height: auto;
+  width: 100vw;
+}
+
+.project-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .project-title {
@@ -61,4 +69,12 @@
 .project-meta__title {
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
+}
+
+.project-meta__body {
+
+}
+
+.project-meta__body p + p {
+  margin-top: srem(1);
 }

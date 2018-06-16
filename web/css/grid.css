@@ -13,10 +13,15 @@
   min-height: 100vh;
 }
 
+  .grid-container--fluid {
+    width: 100%;
+    max-width: 100vw;
+  }
+
 .grid-section {
   grid-column: 2;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
   /* Compensate for absolutely positioned elements like the art */
   position: relative;
   z-index: 100;

@@ -20,6 +20,11 @@ html {
   font: var(--font-size)/1.4 var(--font-sans-serif);
 }
 
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* Typography globals */
 .mono {
   font-family: var(--font-mono);

@@ -1,0 +1,40 @@
+.project--rip {
+  --project-color: #F96666;
+  --project-text-color: white;
+  
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: srem(5);
+  color: var(--project-text-color);
+}
+
+/* Opening animations */
+.project--rip.not-in-view > *     { opacity: 0; }
+.project--rip.in-view .rip-info   { animation: both 1 300ms 200ms fade-from-top-medium var(--easeInOutSine); }
+.project--rip.in-view .rip-phone  { animation: both 1 400ms 200ms fade-from-left-medium var(--easeInOutSine); }
+
+
+.rip-phone {
+  width: 346px;
+  height: 723px;
+  border: var(--project-color) 5px solid;
+  border-radius: 30px;
+  margin-right: srem(4);
+}
+
+.rip-phone__content {
+
+}
+
+.rip-info {
+  max-width: 858px;
+}
+
+.rip-info .project-meta {
+  margin-top: auto;
+}
+
+.rip-info .project-title {
+  color: var(--project-color); 
+}

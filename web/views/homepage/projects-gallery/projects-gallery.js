@@ -55,6 +55,9 @@ export default class SlideGallery {
       diffX:       0,                     // How far has the slide been dragged from it's origin?
     }
 
+    // Set the width of the slides to be exactly the width of the body
+    this._setSlideWidths(el);
+    
     // Add the initial active class to the slide in view
     this._cssActiveClass(0)
     
@@ -72,6 +75,13 @@ export default class SlideGallery {
       return;
     }
     this.state.active = n;
+  }
+
+  _setSlideWidths(el) {
+    const screenWidth = document.body.getBoundingClientRect().width;
+    Array.from(el.children).forEach(slide => {
+      slide.style.width = `${screenWidth}px`;
+    });
   }
 
   /**
