@@ -18,7 +18,7 @@
 
   /* When the gallery is being interracted with, don't allow transitions. */
   .projects-gallery__content.touch {
-    transition: none
+    transition: none;
   }
 
 .projects-gallery__project {
@@ -26,6 +26,11 @@
   flex: 0 0 auto;
   height: auto;
   width: 100vw;
+  cursor: grab;
+}
+
+.projects-gallery__content.touch .projects-gallery__project {
+  cursor: grabbing;
 }
 
 .project-info {
