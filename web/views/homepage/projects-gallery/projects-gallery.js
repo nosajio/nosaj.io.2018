@@ -63,6 +63,9 @@ export default class SlideGallery {
     
     // Add the interactivity to the slideshow
     this._attachMoveEvents();
+
+    // 
+    this._attachWindowEvents();
   }
 
   /**
@@ -144,6 +147,14 @@ export default class SlideGallery {
     this._translateSlide(origin);
   }
 
+  _attachWindowEvents() {
+    const handleResize = event => {
+      this._setSlideWidths(this.el);
+    }
+    
+    window.addEventListener('resize', handleResize);
+  }
+  
   /**
    * Configure and attach all the mouse and touch events needed to interract
    * with the slideshow.
