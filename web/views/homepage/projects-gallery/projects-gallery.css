@@ -75,11 +75,13 @@
 .project-meta__title {
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
+  font-size: .888rem;
+  margin-bottom: srem(-3);
 }
 
 .project-meta__body {
   font-weight: var(--font-weight-light);
-  font-size: .888;
+  font-size: .94rem;
 }
 
 .project-meta__body p + p {
