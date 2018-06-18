@@ -1,0 +1,46 @@
+.project--bfx {
+  --project-color: #52bdaf;
+  --project-color-2: #215693;
+  --project-text-color: white;
+  
+  background: linear-gradient(135deg, var(--project-color-2) 15%, var(--project-color));
+  color: var(--project-text-color);
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+/* Simplify the animations */
+.project--bfx.not-in-view > * { opacity: 0; }
+.project--bfx.in-view .bfx-info { animation: both 1 300ms 200ms fade-from-left-medium var(--easeInOutSine); }
+.project--bfx.in-view .bfx-preview { animation: both 1 400ms 200ms fade-from-right-medium var(--easeInOutSine); }
+
+.bfx-preview {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  max-width: 600px;
+}
+
+.bfx-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px 0 0 0;
+}
+
+.bfx-info {
+  padding: srem(6) 0 srem(6) srem(8);
+  width: 50%;
+  max-width: 900px;
+}
+
+  .bfx-info .project-title {
+    color: #31E7BE;
+  }
+
+  .bfx-info .project-meta {
+    margin-top: auto;
+  }

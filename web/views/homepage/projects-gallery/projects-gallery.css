@@ -1,6 +1,7 @@
 @import './lws.css';
 @import './jal.css';
 @import './rip.css';
+@import './bfx.css';
 
 .projects-gallery {
   position: relative;
@@ -77,7 +78,8 @@
 }
 
 .project-meta__body {
-
+  font-weight: var(--font-weight-light);
+  font-size: .888;
 }
 
 .project-meta__body p + p {

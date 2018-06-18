@@ -8,6 +8,7 @@
   --font-mono: 'roboto-mono', monospace;
   --font-sans-serif: 'runda', sans-serif;
   --font-size: 112.5%; /* 18px by default */
+  --font-weight-light: 200;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;

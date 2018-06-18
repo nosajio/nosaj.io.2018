@@ -35,7 +35,7 @@
   }
 }
 
-/* Fade in from directions */
+/* Fade in from left */
 
 @keyframes fade-from-left-small {
   from {
@@ -58,6 +58,29 @@
   }
 }
 
+/* Fade in from right */
+@keyframes fade-from-right-small {
+  from {
+    transform: translateX(5vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-right-medium {
+  from {
+    transform: translateX(20vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-from-right-large {
+  from {
+    transform: translateX(50vh);
+    opacity: 0;
+  }
+}
+
+/* Fade in from top */
 @keyframes fade-from-top-medium {
   from {
     transform: translateY(-5vh);
@@ -65,6 +88,7 @@
   }
 }
 
+/* Fade in from bottom */
 @keyframes fade-from-bottom-medium {
   from {
     transform: translateY(20vh);
@@ -72,6 +96,7 @@
   }
 }
 
+/* Fade in from Z */
 @keyframes fade-from-z-small {
   from {
     transform: scale(.9);
