@@ -49,6 +49,7 @@ export default class SlideGallery {
     this.el = el;
     
     // Setup the internal state
+    this.touchDown = false;
     this.state = {
       slidesCount: el.children.length,
       active:      0,                     // Index of the slide that is in view
@@ -102,6 +103,7 @@ export default class SlideGallery {
    * @param {Boolean} add 
    */
   _cssActiveClass(index) {
+    if (this.touchDown) return;
     const inactiveClassName = 'not-in-view';
     const activeClassName = 'in-view';
 
@@ -161,11 +163,10 @@ export default class SlideGallery {
    */
   _attachMoveEvents() {
     let touchOrigin = [0, 0];
-    let touchDown = false;
     
     // All the event handlers
     const handleTouchStart = event => {
-      touchDown = true;
+      this.touchDown = true;
       touchOrigin = [event.clientX, event.clientY];
       this._cssTouchClass(true);
     }
@@ -176,15 +177,16 @@ export default class SlideGallery {
       this.updateIndex(this.state.active + changeWeight);
       this._cssTouchClass(false);
       this._returnToOrigin();
-      // Wait for the transition to complete before switching to the active class
-      setTimeout(() => this._cssActiveClass(this.state.active), 300);
+      // Wait for the transition to complete + a delay to wait for further 
+      // user input, before switching to the active class
+      setTimeout(() => this._cssActiveClass(this.state.active), 300 + 100);
       // Reset transient state items
-      touchDown = false;
+      this.touchDown = false;
       this.state.diffX = 0;
     }
 
     const handleTouchMove = event => {
-      if (! touchDown) return;
+      if (! this.touchDown) return;
       // Calculate how much to move the slide based on cursor movement
       const movedTo = [event.clientX, event.clientY]
       const [diffX] = diffCoords(touchOrigin, movedTo);
