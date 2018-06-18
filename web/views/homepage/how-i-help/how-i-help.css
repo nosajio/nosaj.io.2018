@@ -1,0 +1,53 @@
+.hih {
+  /* Block colors */
+  --block-color-red: #AF2828;
+  --block-color-yellow: #d6c001;
+  --block-color-blue: #21A1A9;
+  --block-color-green: #33C84C;
+  
+  
+  margin-top: srem(10);
+  font-size: srem(2);
+  line-height: 1.4;
+}
+
+  .hih > * {
+    max-width: 1037px;
+    width: 100%;
+  }
+
+.hih-title {
+  font-size: srem(5);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1em;
+}
+
+.hih-intro {
+}
+
+  .hih-intro p {
+    margin-top: srem(1);
+  }
+
+.hih-blocks {
+
+}
+
+.hih-block {
+  margin: srem(5) 0;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.hih-block--red { background: var(--block-color-red); }
+.hih-block--yellow { background: var(--block-color-yellow); }
+.hih-block--blue { background: var(--block-color-blue); }
+.hih-block--green { background: var(--block-color-green); }
+
+.hih-block__title {
+  font-weight: var(--font-weight-bold);
+}
+
+.hih-block__desc {
+
+}
