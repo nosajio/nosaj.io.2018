@@ -98,10 +98,9 @@ const bundleToMemory = entry => new Promise(resolve => {
     }
     const compileTime = stats.endTime - stats.startTime;
     log('Compiled assets in %sms', compileTime);
-
     resolve();
   });
 });
 
 
-module.exports = { assetFromFS, bundleToMemory, cssToMemory }
+module.exports = { assetFromFS, bundleToMemory, cssToMemory, memfs }
