@@ -5,14 +5,13 @@
   --block-color-blue: #21A1A9;
   --block-color-green: #33C84C;
   
-  
   margin-top: srem(10);
   font-size: srem(2);
   line-height: 1.4;
 }
 
   .hih > * {
-    max-width: 1037px;
+    max-width: 888px;
     width: 100%;
   }
 
@@ -34,7 +33,7 @@
 }
 
 .hih-block {
-  margin: srem(5) 0;
+  margin: srem(4) 0;
   padding: 1em;
   border-radius: 6px;
 }
@@ -49,5 +48,5 @@
 }
 
 .hih-block__desc {
-
+  font-size: srem(1);
 }
