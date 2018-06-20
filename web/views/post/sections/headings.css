@@ -1,0 +1,23 @@
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.post-body h1,
+.post-body h2 {
+  font-size: srem(2);
+  font-weight: var(--font-weight-bold);
+}
+
+.post-body h3 {
+  font-size: srem(1);
+  font-weight: var(--font-weight-bold);
+}
+
+.post-body h4 {
+  font-size: 1.111rem;
+  font-weight: var(--font-weight-bold);
+}

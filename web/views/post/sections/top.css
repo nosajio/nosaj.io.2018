@@ -1,0 +1,30 @@
+.post-top {
+  margin-bottom: srem(5);
+}
+
+.post-title {
+  font-size: srem(3);
+  font-weight: var(--font-weight-bold);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  margin-top: srem(-1);
+  font: srem(-1) var(--font-mono);
+  color: var(--post-text-color-light);
+}
+
+  /* The arrow */
+  .post-meta::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 10px;
+    background: center left / 100% auto no-repeat url('/posts/arrow-grey.svg');
+  }
+
+  .post-meta__item { 
+    margin: 0 srem(-1);
+  }

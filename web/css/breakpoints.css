@@ -1,4 +1,4 @@
   /* Mediaquery breakpoints */
-  @custom-media --media-small-up only screen and (min-width: 370px);
+  @custom-media --media-small-up only screen and (min-width: 450px);
   @custom-media --media-medium-up only screen and (min-width: 720px);
   @custom-media --media-large-up only screen and (min-width: 1100px);

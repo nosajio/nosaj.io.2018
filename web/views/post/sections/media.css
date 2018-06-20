@@ -1,0 +1,16 @@
+.post-body .image {
+  margin: srem(4) auto;
+}
+
+.post-body .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.post-body .caption {
+  color: var(--post-text-color-light);
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: srem(1);
+}

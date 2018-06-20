@@ -1,0 +1,5 @@
+.post-body blockquote {
+  margin: srem(5) auto;
+  max-width: 600px; 
+  font: 1em/1.5 var(--font-mono);
+}

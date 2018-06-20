@@ -5,6 +5,7 @@ const configureRoutes = () => {
 
   // Homepage
   router.get('/', require('./routes/homepage'));
+  router.get('/r', require('./routes/posts'));
   router.get('/r/:slug', require('./routes/post'));
   
   return router;

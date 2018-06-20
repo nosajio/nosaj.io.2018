@@ -1,0 +1,32 @@
+.post-body hr {
+  position: relative;
+  margin: srem(6) auto;
+  border: none;
+  background: var(--post-text-color);
+  overflow: visible;
+}
+
+.post-body hr::before,
+.post-body hr::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+  transform: rotate(45deg);
+}
+
+.post-body hr,
+.post-body hr::before,
+.post-body hr::after {
+  width: 6px;
+  height: 6px;
+  background: var(--post-text-color);
+}
+
+.post-body hr::before {
+  left: -20px;
+}
+
+.post-body hr::after {
+  left: 20px;
+}

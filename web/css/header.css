@@ -1,6 +1,8 @@
 .nosaj-header {
-  max-width: var(--max-width);
-  margin: srem(9) auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -13,4 +15,23 @@
 .nosaj-header__logo > svg {
   display: block;
   width: 100%;
+}
+
+.nosaj-header--post {
+  padding: srem(2);
+}
+
+a.back-to-posts {
+  display: block;
+  width: 38px;
+  height: 24px;
+  background: center / 100% auto no-repeat url('/posts/back-to-posts.svg');
+  text-decoration: none;
+}
+
+@media (--media-medium-up) {
+  .nosaj-header__logo {
+    max-width: srem(6);
+  }
+
 }

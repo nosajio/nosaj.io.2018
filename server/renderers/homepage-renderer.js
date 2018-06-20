@@ -10,7 +10,7 @@ const page = {
 const renderHomepage = async () => {
   // Get all the view data
   const css      = assetFromFS('homepage.css');
-  const js       = assetFromFS('main.js');
+  const js       = assetFromFS('homepage.js');
   const posts    = await getPosts();
   const viewData = { css, js, posts: posts.slice(0, page.maxPosts) };
 

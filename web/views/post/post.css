@@ -1,7 +1,53 @@
-.post {
+@import '../../css/global.css';
 
+/* Different sections of blog posts */
+@import './sections/cover.css';
+@import './sections/top.css';
+@import './sections/headings.css';
+@import './sections/media.css';
+@import './sections/blockquote.css';
+@import './sections/hr.css';
+
+.post {
+  --post-text-color: #121318;
+  --post-text-color-light: #A7AAB6;
 }
 
 .post-content {
-  
+  /* margin-top: srem(5); */
+  font-size: 1.111rem;
+  line-height: 1.5;
+  color: var(--post-text-color);
+}
+
+.post-body p {
+  margin: srem(1) auto;
+}
+
+  .post-body p a {
+    display: inline;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+
+.post-body a {
+  color: rgb(21, 42, 134);
+  background-image: linear-gradient(0deg, transparent, #189df5, transparent);
+  background-color: #edfbff;
+  background-size: auto 2px;
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  text-decoration: none;
+}
+
+.post-body a:hover {
+  color: rgb(224, 37, 37);
+  background-color: transparent;
+  background-image: linear-gradient(0deg, transparent, rgb(224, 37, 37), transparent);
+}
+
+/* Mark visited links */
+.post-body a:visited {
+  opacity: .6;
+  text-decoration: line-through;
 }

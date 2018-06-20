@@ -5,7 +5,7 @@
   --max-width: 1200px;
   
   /* Typography vars */
-  --font-mono: 'roboto-mono', monospace;
+  --font-mono: 'Overpass Mono', 'Fira Code', monospace;
   --font-sans-serif: 'runda', sans-serif;
   --font-size: 112.5%; /* 18px by default */
   --font-weight-light: 200;

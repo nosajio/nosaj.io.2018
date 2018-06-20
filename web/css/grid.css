@@ -6,7 +6,7 @@
  
 .grid-container {
   display: grid;
-  grid-template-columns: auto var(--max-width) auto;
+  grid-template-columns: 0 minmax(auto, var(--max-width)) 0;
   grid-gap: 0;
   grid-auto-rows: minmax(100px, auto);
   justify-items: center;
@@ -16,6 +16,11 @@
   .grid-container--fluid {
     width: 100%;
     max-width: 100vw;
+  }
+  
+  /* A readable width */
+  .grid-container--readable {
+    grid-template-columns: 0 minmax(auto, 820px) 0;
   }
 
 .grid-section {
@@ -30,3 +35,15 @@
   .grid-section--full {
     grid-column: span 3;
   }
+
+@media (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: auto minmax(auto, var(--max-width)) auto;
+  }
+}
+
+@media (min-width: 820px) {
+  .grid-container--readable {
+    grid-template-columns: auto 820px auto;
+  }
+}
