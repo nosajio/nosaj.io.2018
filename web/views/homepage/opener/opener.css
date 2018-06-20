@@ -44,7 +44,6 @@
   align-items: center;
   flex-flow: column nowrap;
   margin-top: srem(6);
-  max-width: srem(16);
 }
   
   .opener__intro .jason-img {
@@ -77,7 +76,7 @@
   }
 
   .opener__intro  .jason-img { 
-    max-width: srem(8);
+    max-width: srem(9);
     margin: 0 srem(6) 0 0;
   }
 }
