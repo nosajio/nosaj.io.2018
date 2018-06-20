@@ -1,0 +1,8 @@
+.post-body ul {
+  list-style-type: disc;
+  padding-left: srem(1);
+}
+
+.post-body ul li {
+  padding-left: srem(-6);
+}
