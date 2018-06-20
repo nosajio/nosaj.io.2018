@@ -17,6 +17,7 @@
 }
 
 html {
+  width: 100%;
   font: var(--font-weight-normal) var(--font-size)/1.4 var(--font-sans-serif);
 }
 
