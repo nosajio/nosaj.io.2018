@@ -6,7 +6,7 @@
  
 .grid-container {
   display: grid;
-  grid-template-columns: 0 minmax(auto, var(--max-width)) 0;
+  grid-template-columns: 0 auto 0;
   grid-gap: 0;
   grid-auto-rows: minmax(100px, auto);
   justify-items: center;
@@ -20,7 +20,7 @@
   
   /* A readable width */
   .grid-container--readable {
-    grid-template-columns: 0 minmax(auto, 820px) 0;
+    grid-template-columns: srem(2) auto srem(2);
   }
 
 .grid-section {
