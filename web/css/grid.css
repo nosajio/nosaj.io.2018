@@ -38,7 +38,7 @@
 
 @media (min-width: 1200px) {
   .grid-container {
-    grid-template-columns: auto minmax(auto, var(--max-width)) auto;
+    grid-template-columns: auto var(--max-width) auto;
   }
 }
 
