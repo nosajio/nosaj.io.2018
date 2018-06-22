@@ -20,7 +20,7 @@
    * plugin will be useful if this becomes a repeatad pattern:
    * https://github.com/larsenwork/postcss-easing-gradients
    */
-  background: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.028) 11.9%, hsla(0, 0%, 0%, 0.104) 22.5%, hsla(0, 0%, 0%, 0.216) 32.2%, hsla(0, 0%, 0%, 0.352) 41.2%, hsla(0, 0%, 0%, 0.5) 50%, hsla(0, 0%, 0%, 0.648) 58.8%, hsla(0, 0%, 0%, 0.784) 67.8%, hsla(0, 0%, 0%, 0.896) 77.5%, hsla(0, 0%, 0%, 0.972) 88.1%, hsl(0, 0%, 0%) 100%);
+  background: linear-gradient(to bottom, hsla(210, 14%, 20%, 0) 0%, hsla(210, 14%, 20%, 0.028) 11.9%, hsla(210, 14%, 20%, 0.104) 22.5%, hsla(210, 14%, 20%, 0.216) 32.2%, hsla(210, 14%, 20%, 0.352) 41.2%, hsla(210, 14%, 20%, 0.5) 50%, hsla(210, 14%, 20%, 0.648) 58.8%, hsla(210, 14%, 20%, 0.784) 67.8%, hsla(210, 14%, 20%, 0.896) 77.5%, hsla(210, 14%, 20%, 0.972) 88.1%, hsl(210, 14%, 20%) 100%);
 }
 
 .opener {

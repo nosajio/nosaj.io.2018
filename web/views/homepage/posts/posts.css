@@ -1,13 +1,19 @@
+.grid-section.posts {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: srem(10) 0;
+}
+
 .posts-grid {
   display: grid;
-  margin: srem(10) 0;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: srem(7);
 }
 
-
-
-.posts-grid__post-img, .posts-grid__post-info,   .posts-grid__post-meta {
+.posts-grid__post-img, 
+.posts-grid__post-info,
+.posts-grid__post-meta {
   display: block;
 }
 
@@ -38,3 +44,35 @@
   }
 
     .posts-grid__post-meta-date {}
+
+.posts-link {
+  display: block;
+  margin-top: srem(6);
+  padding: 1rem srem(3);
+  text-decoration: none;
+  background-image: linear-gradient(-180deg, rgba(32, 40, 45, 0) 0%, #20282d 100%);
+  background-color: #384148;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 1px 2px 0 #45494D;
+  border-radius: 9px;
+  font-size: srem(1);
+  transition: all 300ms;
+}
+
+
+  .posts-link:hover {
+    background-color: #495258;
+  }
+
+  .posts-link:hover::after {
+    transform: translateX(5px);
+  }
+
+  .posts-link::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background: no-repeat center / 100% auto url('/ui/arrow-white.svg');
+    margin-left: srem(1);
+    transition: all 200ms;
+  }

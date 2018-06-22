@@ -25,7 +25,7 @@ a.post-item {
 
   .post-item__cover {
     width: 100%;
-    margin-bottom: srem(1);
+    margin-bottom: srem(-1);
   }
 
   /* TODO: patch for image proportions */
@@ -54,11 +54,8 @@ a.post-item {
   }
 
 .post-item:first-child {
-  grid-column: span 2;
-  grid-row: span 2;
+  
 }
-
-.post-item:first-child .post-item__cover::after { padding-top: 55.15%; }
 
 @media (--media-small-up) {
   .posts-list {
@@ -67,7 +64,7 @@ a.post-item {
   }
 
   .post-item__cover {
-    margin-bottom: srem(3);
+    margin-bottom: srem(1);
   }
 }
 
@@ -75,10 +72,15 @@ a.post-item {
   .posts-list {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: srem(5);
-    padding: srem(3);
+    padding: srem(5);
   }
 
   .post-item__title {
     font-size: srem(2);
+  }
+
+  .post-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 }
