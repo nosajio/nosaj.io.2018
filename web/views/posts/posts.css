@@ -3,7 +3,7 @@
 .posts {
   --posts-text-color: #121318;
   --posts-text-color-light: #898b92;
-
+  background: #f0f0f0;
 }
 
 .posts-list {
@@ -26,13 +26,17 @@ a.post-item {
   .post-item__cover {
     width: 100%;
     margin-bottom: srem(-1);
+    overflow: hidden;
   }
 
   .post-item__cover img {
     display: block;
     width: 100%;
     height: auto;
+    transition: all 400ms;
   }
+
+  a.post-item:hover .post-item__cover img { transform: scale(1.1); }
 
   .post-item__detail {
     color: var(--posts-text-color);
@@ -41,12 +45,12 @@ a.post-item {
 
   .post-item__title {
     font-size: srem(1);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     line-height: 1.35;
   }
 
   .post-item__date {
-    margin-top: srem(-2);
+    margin-top: srem(-5);
     font: srem(-1) var(--font-mono);
     color: var(--posts-text-color-light);
     text-transform: uppercase;
@@ -72,7 +76,7 @@ a.post-item {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: srem(5);
     padding: srem(5);
-    max-width: var(--max-width);
+    max-width: 1500px;
   }
 
   .post-item__title {
@@ -80,7 +84,7 @@ a.post-item {
   }
 
   .post-item:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 3;
+    grid-row: span 3;
   }
 }
