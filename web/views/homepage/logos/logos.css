@@ -1,14 +1,15 @@
 .logos {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
   align-items: center;
   width: 100%;
   padding: 0 5vw;
+  margin: 0 0 srem(10);
 }
 
 .logos__logo {
-
+  max-width: 33%;
+  padding: srem(2);
 }
 
 .logos__logo img {
@@ -19,6 +20,17 @@
 
 @media (--media-medium-up) {
   .logos__logo {
+    max-width: 25%;
+    padding: srem(1);
+  }
+}
+
+@media (--media-large-up) {
+  .logos {
+    justify-content: space-between
+  }
+  .logos__logo {
     max-width: 10%;
+    padding: 0;
   }
 }

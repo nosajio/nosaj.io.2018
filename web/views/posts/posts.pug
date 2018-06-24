@@ -2,13 +2,14 @@ doctype html
 html
   include /partials/head.pug
   body.posts
+    include /partials/header-dark.pug
     .grid-container.grid-container--fluid
       .grid-section--full.posts-list
         each post in posts
           a.post-item(href=`/r/${post.slug}`)
-            .post-item__cover(style=`background: rgb(${Math.max(Math.round(Math.random() * 255), 200)}, 220, ${Math.max(Math.round(Math.random() * 255), 220)})`)
-              if post.cover
-                img(src=post.cover alt=`${post.title} cover`)
+            .post-item__cover
+              if post.covers.length
+                img(src=post.covers[0] alt=`${post.title} cover`)
             .post-item__detail
               h2.post-item__title= post.title
               .post-item__date= post.dateString

@@ -1,4 +1,11 @@
 .post-cover {
   width: 100%;
   min-height: 418px;
+  margin-bottom: srem(4);
+}
+
+.post-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

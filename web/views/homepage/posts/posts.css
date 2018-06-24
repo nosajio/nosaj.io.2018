@@ -25,8 +25,12 @@
 
   .posts-grid__post-img {
     width: 100%;
-    background: #ccc;
-    height: 140px;
+  }
+
+  .posts-grid__post-img img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .posts-grid__post-info {

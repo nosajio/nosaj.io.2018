@@ -4,9 +4,9 @@ html
   body.post
     include /partials/header-post.pug
     .grid-container.grid-container--readable
-      if post.cover
+      if post.covers.length
         .post-cover.grid-section--full
-          img(src=post.cover alt=`${post.title} cover`)
+          img(src=post.covers[0] alt=`${post.title} cover`)
       article.post-content.grid-section
         header.post-top
           h1.post-title= post.title

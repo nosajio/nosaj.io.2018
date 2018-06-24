@@ -28,16 +28,15 @@ a.post-item {
     margin-bottom: srem(-1);
   }
 
-  /* TODO: patch for image proportions */
-  .post-item__cover::after {
-    content: '';
+  .post-item__cover img {
     display: block;
     width: 100%;
-    padding-top: 40%;
+    height: auto;
   }
 
   .post-item__detail {
     color: var(--posts-text-color);
+    text-align: center;
   }
 
   .post-item__title {
@@ -73,10 +72,11 @@ a.post-item {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: srem(5);
     padding: srem(5);
+    max-width: var(--max-width);
   }
 
   .post-item__title {
-    font-size: srem(2);
+    /* font-size: srem(2); */
   }
 
   .post-item:first-child {
