@@ -1,3 +1,5 @@
+import { EventEmitter } from "events";
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // Some helpers
 
@@ -42,9 +44,11 @@ const addRemoveCssClass = (el, className, add=false) =>
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-export default class SlideGallery {
+export default class SlideGallery extends EventEmitter {
 
   constructor(el) {
+    super();
+    
     // Keep a ref to the slides container
     this.el = el;
     
@@ -79,6 +83,7 @@ export default class SlideGallery {
       return;
     }
     this.state.active = n;
+    this.emit('change', { index: n, element: this.el.children[n] });
   }
 
   _setSlideWidths(el) {
