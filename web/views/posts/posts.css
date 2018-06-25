@@ -33,7 +33,7 @@ a.post-item {
     display: block;
     width: 100%;
     height: auto;
-    transition: all 400ms;
+    transition: all 300ms var(--easeOutCustom);
   }
 
   a.post-item:hover .post-item__cover img { transform: scale(1.1); }

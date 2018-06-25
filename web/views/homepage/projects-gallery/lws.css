@@ -16,9 +16,9 @@
 
 /* Simplify the animations */
 .project--lws.not-in-view > * { opacity: 0; }
-.project--lws.in-view .map-decor { animation: both 1 200ms fade-from-left-large var(--easeInOutSine); }
-.project--lws.in-view .lws-info { animation: both 1 300ms 200ms fade-from-top-medium var(--easeInOutSine); }
-.project--lws.in-view .lws-phone { animation: both 1 400ms 200ms fade-from-left-medium var(--easeInOutSine); }
+.project--lws.in-view .map-decor { animation: both 1 400ms fade-from-left-large; }
+.project--lws.in-view .lws-info { animation: both 1 500ms 400ms fade-from-top-medium var(--easeOutCustom); }
+.project--lws.in-view .lws-phone { animation: both 1 600ms 400ms fade-from-left-medium var(--easeOutCustom); }
 
 .map-decor {
   position: absolute;

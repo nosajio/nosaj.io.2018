@@ -63,14 +63,16 @@ export default class SlideGallery extends EventEmitter {
     // Set the width of the slides to be exactly the width of the body
     this._setSlideWidths(el);
     
-    // Add the initial active class to the slide in view
-    this._cssActiveClass(0)
     
     // Add the interactivity to the slideshow
     this._attachMoveEvents();
-
+    
     // 
     this._attachWindowEvents();
+    
+    // Set the first slide to be the one that's active
+    this._cssActiveClass(0)
+    this.updateIndex(0);
   }
 
   /**
@@ -174,6 +176,11 @@ export default class SlideGallery extends EventEmitter {
       this.touchDown = true;
       touchOrigin = [event.clientX, event.clientY];
       this._cssTouchClass(true);
+      this.emit('touch', { 
+        index: this.state.active,
+        slides: this.el.children, 
+        element: this.el.children[this.state.active] 
+      });
     }
 
     const handleTouchEnd = event => {

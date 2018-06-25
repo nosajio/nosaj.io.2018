@@ -17,7 +17,7 @@
 
 .hih-title {
   font-size: srem(5);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   margin-bottom: 1em;
 }
 
