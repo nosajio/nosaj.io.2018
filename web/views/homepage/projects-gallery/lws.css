@@ -1,6 +1,6 @@
 .project--lws {
-  --project-color: #F6E75E;
-  --project-text-color: black;
+  --project-color: black;
+  --project-text-color: white;
   
   background: var(--project-color);
   color: var(--project-text-color);
@@ -29,15 +29,25 @@
 }
 
 .lws-phone {
-  width: 346px;
-  height: 723px;
-  background: var(--project-text-color);
+  width: 100%;
+  height: auto;
+  max-width: 346px;
+  background: black;
   border-radius: 30px;
-  
+  padding: 65px 13px;
 }
 
 .lws-phone__content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
 
+.lws-phone__content video {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .lws-info {
