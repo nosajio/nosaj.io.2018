@@ -1,9 +1,9 @@
 @import '../../css/global.css';
 
 .posts {
-  --posts-text-color: #121318;
-  --posts-text-color-light: #898b92;
-  background: #f0f0f0;
+  --posts-text-color: white;
+  --posts-text-color-light: #6f7179;
+  background: #121318;
 }
 
 .posts-list {
@@ -21,11 +21,12 @@ a.post-item {
   flex-flow: column nowrap;
   justify-content: flex-end;
   text-decoration: none;
+  border-radius: 0 0 7px 7px;
+  transition: all 500ms var(--easeOutCustom);
 }
 
   .post-item__cover {
     width: 100%;
-    margin-bottom: srem(-1);
     overflow: hidden;
   }
 
@@ -36,12 +37,18 @@ a.post-item {
     transition: all 500ms var(--easeInOutSine);
   }
 
-  a.post-item:hover .post-item__cover img { 
-    transform: scale(1.07); 
-    transition-duration: 2s;
-  }
+    a.post-item:hover .post-item__cover img { 
+      transform: scale(1.07); 
+      transition-duration: 2s;
+    }
 
+    a.post-item:hover {
+      background: rgba(255, 255, 255, .04);
+    }
+
+    
   .post-item__detail {
+    padding: srem(-2);
     color: var(--posts-text-color);
     text-align: center;
   }
@@ -77,7 +84,7 @@ a.post-item {
 @media (--media-large-up) {
   .posts-list {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: srem(5);
+    grid-gap: srem(4);
     padding: srem(5);
     max-width: 1500px;
   }

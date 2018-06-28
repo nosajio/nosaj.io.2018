@@ -43,6 +43,26 @@ const addRemoveCssClass = (el, className, add=false) =>
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+/**
+ * Slide Gallery 
+ * 
+ * Pass a parent element and it will be converted into a interactive slide gallery. 
+ * The passed element's children will be treated as the slides.
+ * 
+ * parent
+ * +---------------+
+ * | +-----------+ | +-----------+ +-----------+
+ * | |           | | |           | |           |
+ * | | slide     | | | slide     | | slide     |
+ * | |           | | |           | |           |
+ * | +-----------+ | +-----------+ +-----------+
+ * +---------------+
+ * 
+ * ~ Events
+ * 'update'   - emits after the active slide is changed.
+ * 'touch'    - emits when the gallery is being interacted with.
+ * 'init'     - emits after the gallery has finished initialising.
+ */
 
 export default class SlideGallery extends EventEmitter {
 
@@ -73,6 +93,9 @@ export default class SlideGallery extends EventEmitter {
     // Set the first slide to be the one that's active
     this._cssActiveClass(0)
     this.updateIndex(0);
+
+    // Manually emit the initialised event. Pass the first child 
+    this.emit('init', { element: el.children[0], index: 0 });
   }
 
   /**
