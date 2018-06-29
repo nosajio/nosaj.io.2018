@@ -1,12 +1,6 @@
 import runOpener from './opener/opener';
 import ProjectsGallery from './projects-gallery/projects-gallery';
-import { el } from 'utils/helpers';
-
-let debounceTimer;
-const debounce = ms => new Promise(resolve => {
-  window.clearTimeout(debounceTimer);
-  debounceTimer = window.setTimeout(() => resolve(), ms);
-});
+import { el, debounce } from 'utils/helpers';
 
 const playSlideVideos = slides => {
   const videos = Array.from(slides).map(slide => slide.querySelector('video'));
@@ -26,15 +20,11 @@ const initProjectsGallery = () => {
   const galleryElement = el('.projects-gallery__content');
   const gallery = new ProjectsGallery(galleryElement);
 
-  gallery.on('change', e => {
-    // Play in-view video video when landing on slide
-    playSlideVideos([e.element]);
-  });
+  // Play in-view video video when landing on slide
+  gallery.on('change', e => playSlideVideos([e.element]) );
 
-  gallery.on('touch', e => {
-    // Pause all videos on slide interaction
-    pauseSlideVideos(e.slides);
-  });
+  // Pause all videos on slide interaction on touch
+  gallery.on('touch', e =>  pauseSlideVideos(e.slides) );
 
   // Autoplay the first slide's video when it's in view
   window.addEventListener('scroll', e => {
