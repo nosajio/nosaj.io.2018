@@ -38,6 +38,6 @@
   }
 
 .project--jal .project-meta {
-  margin-top: auto;
+  margin-top: srem(4);
   max-width: 700px;
 }

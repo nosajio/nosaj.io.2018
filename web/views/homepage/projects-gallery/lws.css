@@ -1,6 +1,6 @@
 .project--lws {
-  --project-color: black;
-  --project-text-color: white;
+  --project-color: #F6E974;
+  --project-text-color: black;
   
   background: var(--project-color);
   color: var(--project-text-color);

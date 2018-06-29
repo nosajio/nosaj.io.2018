@@ -1,6 +1,6 @@
 .project--bfx {
-  --project-color: #52bdaf;
-  --project-color-2: #215693;
+  --project-color: #fae9b3;
+  --project-color-2: #0785dc;
   --project-text-color: white;
   
   background: linear-gradient(135deg, var(--project-color-2) 15%, var(--project-color));
@@ -8,7 +8,8 @@
 
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 /* Simplify the animations */
@@ -21,7 +22,7 @@
   bottom: 0;
   right: 0;
   width: 50%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .bfx-preview img {
@@ -33,14 +34,14 @@
 
 .bfx-info {
   padding: srem(6) 0 srem(6) srem(8);
-  width: 50%;
-  max-width: 900px;
+  width: 45%;
+  max-width: 800px;
 }
 
   .bfx-info .project-title {
-    color: #31E7BE;
+    color: var(--project-text-color);
   }
 
   .bfx-info .project-meta {
-    margin-top: auto;
+    margin-top: srem(5);
   }

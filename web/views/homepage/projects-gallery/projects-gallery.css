@@ -13,6 +13,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  align-items: flex-start;
   width: auto;
   transition: all 300ms;
 }
@@ -25,6 +26,7 @@
 .projects-gallery__project {
   position: relative;
   flex: 0 0 auto;
+  min-height: 90vh;
   height: auto;
   width: 100vw;
   cursor: grab;
