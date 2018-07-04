@@ -2,13 +2,13 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: srem(10) 0;
+  margin: srem(5) 0;
 }
 
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: srem(7);
+  grid-gap: srem(2);
 }
 
 .posts-grid__post-img, 
@@ -18,10 +18,9 @@
 }
 
   .posts-grid__post {
-    text-align: center;
   }
 
-  .posts-grid__post a { text-decoration: none; }
+  .posts-grid__post a { text-decoration: none; color: var(--homepage-text); }
 
   .posts-grid__post-img {
     width: 100%;
@@ -52,14 +51,12 @@
 .posts-link {
   display: block;
   margin-top: srem(6);
-  padding: 1rem srem(3);
+  padding: 1rem srem(2);
   text-decoration: none;
-  background-image: linear-gradient(-180deg, rgba(32, 40, 45, 0) 0%, #20282d 100%);
-  background-color: #384148;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 1px 2px 0 #45494D;
-  border-radius: 9px;
   font-size: srem(1);
   transition: all 300ms;
+  border: var(--homepage-text) 2px solid;
+  color: var(--homepage-text);
 }
 
 
@@ -80,3 +77,10 @@
     margin-left: srem(1);
     transition: all 200ms;
   }
+
+@media (--media-medium-up) {
+  .grid-section.posts {
+    margin-top: srem(8);
+    margin-bottom: srem(8);
+  }
+}

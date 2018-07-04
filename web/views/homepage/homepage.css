@@ -12,11 +12,15 @@
  */
 
 .homepage {
-  background: rgb(44, 51, 58);
-  color: white;
+  --homepage-background: #101018;
+  --homepage-complementary: rgb(255, 70, 70);
+  --homepage-text: white;
+
+  background: var(--homepage-background);
+  color: var(--homepage-text);
 }
 
 a {
-  color: white;
+  color: var(--homepage-complementary);
   text-decoration: underline;
 }
