@@ -12,8 +12,8 @@
  */
 
 .homepage {
-  --homepage-background: #101018;
-  --homepage-complementary: rgb(255, 70, 70);
+  --homepage-background: var(--color-black);
+  --homepage-complementary: var(--color-red);
   --homepage-text: white;
 
   background: var(--homepage-background);

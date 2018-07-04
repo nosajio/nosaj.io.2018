@@ -1,0 +1,98 @@
+/* Add the large logo to the bottom of a page when the element exists */
+.footer-logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 70vh;
+  background: no-repeat url('/nosaj-logo-white-rotated-transparent.svg') top center / 90% auto;
+}
+
+.nosaj-footer {
+  position: relative;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: srem(3);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: srem(4);
+  padding-bottom: srem(4);
+}
+
+  .nosaj-footer a { color: white; }
+  
+  .nosaj-footer a:hover,
+  .light-bg .nosaj-footer a:hover { color: var(--color-red); }
+
+  .light-bg .nosaj-footer a {
+    color: var(--color-black);
+  }
+
+.footer-block {
+
+}
+
+.footer-block::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  margin-bottom: srem(-1);
+  background: url('/ui/zigzag-white.svg') no-repeat top left;
+}
+
+.light-bg .footer-block::before { background-image: url('/ui/zigzag-black.svg'); }
+
+  .footer-block__heading {
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    margin-bottom: srem(-1);
+  }
+  
+.footer-list {
+  font: 1rem var(--font-mono);
+}
+
+  .footer-list li { 
+    
+  }
+
+  .footer-list li::before {
+    content: "";
+    width: 16px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 1em;
+    background: url('/ui/arrow-white.svg') no-repeat;
+  }
+
+    .light-bg .footer-list li::before { background-image: url('/ui/arrow-black.svg'); }
+
+  .footer-list a {
+    text-decoration: none;
+  }
+
+.footer-c {
+
+}
+
+  .footer-c__row {
+    margin: srem(-4) 0;
+    font-size: srem(-1);
+  }
+
+@media (--media-medium-up) {
+  .nosaj-footer {
+    padding-top: srem(9);
+    padding-bottom: srem(4);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: srem(7);
+  }
+
+  .footer-c {
+    grid-column: span 3;
+  }
+}

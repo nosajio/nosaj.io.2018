@@ -11,7 +11,7 @@
 @import './sections/hr.css';
 
 .post {
-  --post-text-color: #121318;
+  --post-text-color: var(--color-black);
   --post-text-color-light: #A7AAB6;
 }
 

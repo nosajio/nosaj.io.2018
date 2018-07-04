@@ -16,4 +16,8 @@
   /* Easing funcs */
   --easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   --easeOutCustom: cubic-bezier(0.880, 0.535, 0.400, 1.270);
+
+  /* Colors */
+  --color-black: #101018;
+  --color-red: rgb(255, 70, 70);
 }

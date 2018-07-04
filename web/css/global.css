@@ -8,6 +8,7 @@
 @import './animations.css';
 @import './grid.css';
 @import './header.css';
+@import './footer.css';
 
 /* Base setup */
 *,
@@ -22,6 +23,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100%;
   overflow-x: hidden;
 }

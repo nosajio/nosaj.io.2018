@@ -1,7 +1,7 @@
 doctype html
 html
   include /partials/head.pug
-  body.post
+  body.post.light-bg
     include /partials/header-post.pug
     .grid-container.grid-container--readable
       if post.covers.length
@@ -15,5 +15,5 @@ html
             li.post-meta__item by Jason Howmans
             li.post-meta__item London
         .post-body !{post.body}
-
+    include /partials/footer.pug
     include /partials/scripts.pug

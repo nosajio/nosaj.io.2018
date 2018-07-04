@@ -5,6 +5,7 @@
  */
  
 .grid-container {
+  position: relative;
   display: grid;
   grid-template-columns: 0 auto 0;
   grid-gap: 0;
