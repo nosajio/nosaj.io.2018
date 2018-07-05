@@ -4,8 +4,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 0;
-  opacity: .5;
+  z-index: 1;
+  /* opacity: .5; */
 }
 
 .opener-art::after {
@@ -14,7 +14,7 @@
   position: absolute;
   bottom: 0; left: 0;
   width: 100%;
-  height: 4vh;
+  height: 5vh;
   /**
    * The below gradient is just black to transparent with dithering added. This
    * plugin will be useful if this becomes a repeatad pattern:

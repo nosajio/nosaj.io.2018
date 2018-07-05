@@ -18,8 +18,7 @@
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-top: srem(4);
-  padding-bottom: srem(4);
+  padding: srem(4) srem(1);
 }
 
   .nosaj-footer a { color: white; }
@@ -86,8 +85,7 @@
 
 @media (--media-medium-up) {
   .nosaj-footer {
-    padding-top: srem(9);
-    padding-bottom: srem(4);
+    padding: srem(9) 0 srem(4);
     grid-template-columns: repeat(3, 1fr);
     grid-gap: srem(7);
   }

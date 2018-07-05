@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: srem(5) 0;
+  margin: 0 0 srem(5);
 }
 
 .posts-grid {
@@ -80,7 +80,7 @@
 
 @media (--media-medium-up) {
   .grid-section.posts {
-    margin-top: srem(8);
-    margin-bottom: srem(8);
+    margin-bottom: srem(9);
+    margin-top: srem(9);
   }
 }
