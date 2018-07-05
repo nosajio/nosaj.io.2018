@@ -1,0 +1,36 @@
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem srem(2);
+  margin: srem(2);
+  text-decoration: none;
+  font-size: srem(1);
+  transition: all 300ms;
+  border: var(--homepage-text) 2px solid;
+  color: var(--homepage-text);
+}
+
+  /* .buttons .button + .button { margin-left: srem(2); } */
+
+  .button:hover {
+    background-color: #495258;
+  }
+
+.button--arrow {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  background: no-repeat center / 100% auto url('/ui/arrow-white.svg');
+  margin-left: srem(1);
+  transition: all 200ms;
+}
+
+.button--arrow:hover::after {
+  transform: translateX(5px);
+}

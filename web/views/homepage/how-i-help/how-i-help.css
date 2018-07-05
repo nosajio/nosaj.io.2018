@@ -1,26 +1,16 @@
 .hih {
-  /* Block colors */
-  --block-color-red: #4f28af;
-  --block-color-yellow: #d6c001;
-  --block-color-blue: #21A1A9;
-  --block-color-green: #33C84C;
-  
   margin-top: srem(4);
-  padding: 0 srem(3);
-  font-size: srem(2);
   line-height: 1.4;
   text-align: center;
 }
 
 .hih-title {
-  font-size: srem(1);
   font-weight: var(--font-weight-medium);
-  margin-bottom: 1em;
 }
 
 .hih-intro {
   width: 100%;
-  max-width: 888px;
+  max-width: 777px;
   margin: 0 auto;
 }
 
@@ -66,14 +56,8 @@
 }
 
 @media (--media-medium-up) {
-  .hih { padding: 0; margin-top: srem(8); }
+  .hih { font-size: srem(1); margin-top: srem(8); }
 
-  .hih-title {
-    font-size: srem(5);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: 1em;
-  }
-  
   .hih-blocks {
     grid-template-columns: 1fr 1fr;
     grid-gap: srem(8);

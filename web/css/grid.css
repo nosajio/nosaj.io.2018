@@ -21,13 +21,15 @@
   
   /* A readable width */
   .grid-container--readable {
-    grid-template-columns: srem(2) auto srem(2);
+    grid-template-columns: repeat(3, auto);
   }
 
 .grid-section {
   grid-column: 2;
   width: 100%;
   max-width: var(--max-width);
+  padding-left: var(--mobile-padding);
+  padding-right: var(--mobile-padding);
   /* Compensate for absolutely positioned elements like the art */
   position: relative;
   z-index: 100;
@@ -37,8 +39,10 @@
     grid-column: span 3;
   }
 
-@media (min-width: 1200px) {
+@media (min-width: var(--max-width)) {
   .grid-container {
+    padding-left: 0;
+    padding-right: 0;
     grid-template-columns: auto var(--max-width) auto;
   }
 }

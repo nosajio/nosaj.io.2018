@@ -2,12 +2,11 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 0 0 srem(5);
+  margin: srem(5) 0 srem(5);
 }
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: srem(2);
 }
 
@@ -82,5 +81,9 @@
   .grid-section.posts {
     margin-bottom: srem(9);
     margin-top: srem(9);
+  }
+
+  .posts-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

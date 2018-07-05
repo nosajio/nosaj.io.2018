@@ -6,6 +6,7 @@
 @import './posts/posts.css';
 @import './projects-gallery/projects-gallery.css';
 @import './how-i-help/how-i-help.css';
+@import './hire-me/hire-me.css';
 
 /**
  * Homepage styles
@@ -20,7 +21,21 @@
   color: var(--homepage-text);
 }
 
+.section-title {
+  margin-bottom: 1em;
+  font-weight: var(--font-weight-bold);
+}
+
+h1.section-title { font-size: srem(3); }
+h2.section-title { font-size: srem(2); }
+h3.section-title { font-size: srem(1); }
+
 a {
   color: var(--homepage-complementary);
   text-decoration: underline;
+}
+
+@media (--media-medium-up) {
+  h1.section-title { font-size: srem(5); }
+  h2.section-title { font-size: srem(3); }
 }
