@@ -14,9 +14,14 @@ const pugOptions = {
 const resolveViewPath = viewFile => path.join(viewsdir, viewFile)
 
 const getViewHTML = (viewName, data) => {
-  const compileFn = compileFile(resolveViewPath(`${viewName}.pug`), pugOptions);
-  const html = compileFn(data);
-  return html;
+  try {
+    const viewPath = resolveViewPath(`${viewName}.pug`);
+    const compileFn = compileFile(viewPath, pugOptions);
+    const html = compileFn(data);
+    return html;
+  } catch(err) {
+    throw err;
+  }
 }
 
 module.exports = { getViewHTML };

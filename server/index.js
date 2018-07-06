@@ -10,9 +10,15 @@ const withAssets = {
   js: { 
     homepage: './web/views/homepage/homepage.js', 
     posts: './web/views/posts/posts.js',
-    post: './web/views/post/post.js'
+    post: './web/views/post/post.js',
+    contact: './web/views/contact/contact.js'
   },
-  css: ['./web/views/homepage/homepage.css', './web/views/posts/posts.css', './web/views/post/post.css']
+  css: [
+    './web/views/homepage/homepage.css', 
+    './web/views/posts/posts.css', 
+    './web/views/post/post.css',
+    './web/views/contact/contact.css',
+  ]
 }
 
 boot( withAssets );

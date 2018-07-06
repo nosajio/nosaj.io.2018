@@ -23,7 +23,7 @@ const log = (section, ...args) => {
 
 // Construct reporters for logs and errors
 const Constructor = section => ({
-  error: (...args) => error(section, args),
+  error: (...args) => error(section, ...args),
   log:   (...args) => log(section, ...args),
 });
 
