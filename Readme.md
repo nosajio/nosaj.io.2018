@@ -2,6 +2,8 @@
 >
 > – Jason Howmans, 1999
 
+![](https://img.shields.io/website/http/nosaj.io.svg?label=nosaj.io)
+
 ![](http://bestanimations.com/Site/Construction/under-construction-animated-gif-8.gif)
 
 Oh how things have changed since then. 

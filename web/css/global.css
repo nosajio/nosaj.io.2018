@@ -30,6 +30,13 @@ body {
 }
 
 /* Typography globals */
+a {
+  color: var(--color-red);
+  text-decoration: underline;
+}
+
+
+/* Switch to a monospace font */
 .mono {
   font-family: var(--font-mono);
   line-height: 1.5;

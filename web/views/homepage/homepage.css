@@ -30,11 +30,6 @@ h1.section-title { font-size: srem(3); }
 h2.section-title { font-size: srem(2); }
 h3.section-title { font-size: srem(1); }
 
-a {
-  color: var(--homepage-complementary);
-  text-decoration: underline;
-}
-
 @media (--media-medium-up) {
   h1.section-title { font-size: srem(5); }
   h2.section-title { font-size: srem(3); }

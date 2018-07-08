@@ -2,6 +2,51 @@ doctype html
 html
   include /partials/head.pug
   body.contact
-    include /partials/header.pug
-    
+    include /partials/header-light.pug
+
+    .grid-container.grid-container--fluid
+
+      section.grid-section.message-me
+        h1.section-title Let the journey begin.
+
+        form(method='post' action='/email' name='email-form').email-form
+          
+          .email-form__row
+            .email-form__label What's the subject?
+            .email-form__field.email-subject
+              label.email-subject__select
+                input(
+                  type='radio' 
+                  name='subject' 
+                  value='Just saying hello'
+                  )
+                span.email-subject-button 😊  Just saying hello
+              label.email-subject__select
+                input(
+                  type='radio' 
+                  name='subject' 
+                  value='Work enquiry'
+                  )
+                span.email-subject-button 👨‍💻  Work enquiry
+              label.email-subject__select
+                input(
+                  type='radio' 
+                  name='subject' 
+                  value='Other'
+                  )
+                span.email-subject-button 💫  Other
+
+          .email-form__row
+            .email-message-area
+              .email-message-area__reply-to
+                input.email-reply-to(
+                  type='email' 
+                  name='replyTo' 
+                  value=''
+                  placeholder='me@example.com'
+                  )
+              .email-message-area__body
+                - const br = '&#13;';
+                textarea.email-body(name='body') Hey Jason,#{br}...
+
     include /partials/scripts.pug

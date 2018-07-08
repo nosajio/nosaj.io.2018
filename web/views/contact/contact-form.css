@@ -1,0 +1,115 @@
+.grid-section.message-me {}
+
+.email-form {
+  --form-dark: rgba(255, 255, 255, .1);
+  --form-light: rgb(243, 243, 243);
+  --form-light-text: #85858d;
+  --border-radius: 7px;
+}
+
+  .email-form__row + .email-form__row {
+    margin-top: srem(3);
+  }
+
+  .email-form__label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    font-size: srem(2);
+    margin-bottom: srem(1);
+  }
+  .email-form__field {}
+
+.email-subject {
+  display: grid;
+  grid-auto-columns: min-content;
+  grid-auto-flow: column;
+  grid-gap: srem(3);
+}
+  
+  .email-subject-button {
+    display: block;
+    font-size: srem(1);
+    background: #24242e;
+    color: white;
+    white-space: nowrap;
+    padding: srem(1) srem(2);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: all 150ms var(--easeOutCustom);
+  }
+
+  /* Hide the radio button */
+  .email-subject__select input[type="radio"] {     
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; 
+  }
+
+  /* Change the button when the radio is active */
+  .email-subject__select input[type="radio"]:hover ~ .email-subject-button,
+  .email-subject__select input[type="radio"]:focus ~ .email-subject-button {
+    background: #31313d;
+  }
+  .email-subject__select input[type="radio"]:checked ~ .email-subject-button {
+    background: rgb(243, 243, 243);
+    color: #24242e;
+  }
+
+.email-message-area {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+  .email-message-area__reply-to {
+    width: 100%;
+    border-bottom: 1px solid #44444e;
+  }
+  
+  .email-reply-to,
+  .email-body {
+    display: block;
+    width: 100%;
+    padding: srem(-1);
+    border: none;
+    outline: none;
+    font-size: srem(1);
+    background: var(--form-light);
+    color: var(--form-light-text);
+    outline: none;
+    transition: all 150ms var(--easeOutCustom);
+  }
+
+  .email-reply-to::placeholder {
+    opacity: 0.5;
+    color: var(--form-light-text);
+  }
+  
+    .email-reply-to:focus,
+    .email-body:focus {
+      color: #24242e;
+    }
+  
+  .email-message-area__body {
+    width: 100%;
+  }
+
+  .email-body {
+    min-height: 25vh;
+    max-height: 90vh;
+    overflow: scroll;
+  }
+
+@media (--media-medium-up) {
+  .email-form__row + .email-form__row {
+    margin-top: srem(5);
+  }
+
+  .email-body {
+    min-height: 40vh;
+    max-height: 50vh;
+  }
+  
+}

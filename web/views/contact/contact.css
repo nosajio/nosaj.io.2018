@@ -1,5 +1,22 @@
 @import '../../css/global.css';
 
-.contact {
+@import './contact-form.css';
 
+.contact {
+  background: var(--color-black);
+  color: white;
+}
+
+.section-title {
+  margin-bottom: 1em;
+  font-weight: var(--font-weight-bold);
+}
+
+h1.section-title { font-size: srem(3); }
+h2.section-title { font-size: srem(2); }
+h3.section-title { font-size: srem(1); }
+
+@media (--media-medium-up) {
+  h1.section-title { font-size: srem(5); }
+  h2.section-title { font-size: srem(3); }
 }

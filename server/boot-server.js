@@ -28,12 +28,14 @@ const bootServer = async ({ css, js, staticPath }) => {
     } catch (err) {
       err.expose = true;
       ctx.status = err.status || 500;
-      ctx.body = renderError(ctx.status);
-      ctx.app.emit('error', err, ctx);
+      if (ctx.status >= 300) {
+        ctx.body = renderError(ctx.status);
+        ctx.app.emit('error', err, ctx);
+      }
     }
   });
   app.on('error', (err, ctx) => {
-    error('%s was thrown: %O', ctx.status, err);
+    error('%s was encountered: %O', ctx.status, err);
   });
 
   // Setup the static middleware, which will serve static assets from a directory
