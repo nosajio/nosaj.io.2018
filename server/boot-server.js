@@ -38,11 +38,11 @@ const bootServer = async ({ css, js, staticPath }) => {
     error('%s was encountered: %O', ctx.status, err);
   });
 
-  // Setup the static middleware, which will serve static assets from a directory
-  app.use( koaStatic(fromBase(staticPath)) )
-
   // Slot the router into Koa middleware
   app.use( router.routes() );
+
+  // Setup the static middleware, which will serve static assets from a directory
+  app.use(koaStatic(fromBase(staticPath)))
 
   // Listen on port in the .env file
   app.listen(listenPort);
