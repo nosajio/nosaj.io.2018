@@ -12,7 +12,7 @@ html
         form(method='post' action='/email' name='email-form').email-form
           
           .email-form__row
-            .email-form__label What's the subject?
+            .email-form__label What are you contacting me about?
             .email-form__field.email-subject
               label.email-subject__select
                 input(
@@ -38,7 +38,8 @@ html
 
           .email-form__row
             .email-message-area
-              .email-message-area__reply-to
+              label.email-message-area__reply-to
+                .email-reply-to-label Your email:
                 input.email-reply-to(
                   type='email' 
                   name='replyTo' 
@@ -46,7 +47,9 @@ html
                   placeholder='me@example.com'
                   )
               .email-message-area__body
-                - const br = '&#13;';
-                textarea.email-body(name='body') Hey Jason,#{br}...
+                textarea.email-body(name='body') Hi Jason, 
+
+          .email-form__row
+            button.button.email-send(type='submit') Send
 
     include /partials/scripts.pug

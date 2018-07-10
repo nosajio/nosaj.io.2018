@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "autoprefixer": "^8.6.0",
     "axios": "^0.18.0",
     "debug": "^3.1.0",
