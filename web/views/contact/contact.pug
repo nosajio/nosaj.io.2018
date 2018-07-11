@@ -9,6 +9,10 @@ html
       section.grid-section.message-me
         h1.section-title Let the journey begin.
 
+        .email-fail.hidden 
+          p There was a problem sending your message (this is most likely my fault)
+          p While I put out the fire, feel free to send me an email on jason at this domain name.
+
         form(method='post' action='/email' name='email-form').email-form
           
           .email-form__row
@@ -19,6 +23,7 @@ html
                   type='radio' 
                   name='subject' 
                   value='Just saying hello'
+                  checked
                   )
                 span.email-subject-button 😊  Just saying hello
               label.email-subject__select
@@ -47,9 +52,18 @@ html
                   placeholder='me@example.com'
                   )
               .email-message-area__body
-                textarea.email-body(name='message') Hi Jason, 
+                textarea.email-body(name='message' placeholder='Hi Jason,')= ''
 
           .email-form__row
+
+          .email-form__row
+            .email-invalid.hidden
+              p Make sure you fill out all fields of the form 😊
             button.button.email-send(type='submit') Send
+
+        .email-success.hidden
+          h1.section-title Message received!
+          p Thanks for your message. I will usually reply the same day if I'm not travelling or sleeping.
+          p In the meantime. If you feel like doing some light reading, you can #[a(href='/r') browse my blog].
 
     include /partials/scripts.pug

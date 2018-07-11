@@ -60,6 +60,7 @@
   flex-flow: column nowrap;
   overflow: hidden;
   border-radius: var(--border-radius);
+  max-width: 1200px;
 }
 
   .email-message-area__reply-to {
@@ -69,7 +70,7 @@
     width: 100%;
     background: var(--form-light);
     color: var(--form-light-text);
-    border-bottom: 1px solid #44444e;
+    border-bottom: 2px solid #d1d1d1;
   }
 
   .email-reply-to-label {
@@ -82,7 +83,7 @@
   .email-body {
     display: block;
     width: 100%;
-    padding: srem(-1);
+    padding: srem(1);
     border: none;
     outline: none;
     font-size: srem(1);
@@ -92,7 +93,8 @@
     transition: all 150ms var(--easeOutCustom);
   }
 
-  .email-reply-to::placeholder {
+  .email-reply-to::placeholder,
+  .email-body::placeholder {
     opacity: 0.5;
     color: var(--form-light-text);
   }
@@ -111,6 +113,25 @@
     max-height: 90vh;
     overflow: scroll;
   }
+
+/**/
+.email-send {
+
+}
+
+
+/* Errors and validation */
+  
+/* Handle invalid fields by highlighting them */
+.invalid-field {
+  border: 2px solid #ebc342;
+}
+
+.email-invalid {
+  margin-bottom: srem(2);
+  font-size: srem(3);
+  font-weight: var(--font-weight-medium);
+}
 
 @media (--media-medium-up) {
   
