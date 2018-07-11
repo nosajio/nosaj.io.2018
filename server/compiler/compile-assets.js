@@ -13,11 +13,13 @@ const dev = process.env.ENV === 'development';
 // * Keep out of scope so that memfs can act as a in memory cache for assets
 const memfs = new MemoryFS();
 
+
 /**
  * Retrieve an asset from filesystem
  * @param {String[]} assetPath The path from the output directory to
  *                                  the requested file.
  */
+
 const assetFromFS = assetPath => {
   try {
     const assetString = memfs.readFileSync(`/${assetPath}`).toString();
@@ -33,6 +35,7 @@ const assetFromFS = assetPath => {
  * @param {String} filepath 
  * @param {String} contents 
  */
+
 const assetToFS = (filepath, contents) => {
   const filename = path.basename(filepath);
   memfs.writeFileSync(`/${filename}`, contents);
@@ -43,6 +46,7 @@ const assetToFS = (filepath, contents) => {
  * Compile postcss css files to memory. Handles an array of entry points
  * @param {String[]} entries - entry paths should be relative to project dir
  */
+
 const cssToMemory = async entries => {
   const postcssOps = entries.map(e => openFileAndPostcss(e));
   const cssBundles = await Promise.all(postcssOps).catch(err => error(err));
@@ -63,6 +67,7 @@ const cssToMemory = async entries => {
  * Compile assets from entry point and return a Map of bundles
  * @param {String|String[]} entry
  */
+
 const bundleToMemory = entry => new Promise(resolve => {
   
   // Setup the webpack options
