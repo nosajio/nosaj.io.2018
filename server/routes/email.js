@@ -1,4 +1,5 @@
 const sgmail = require('@sendgrid/mail');
+const striptags = require('striptags');
 const { validateEmail, composeMessage } = require('../utils/email.js');
 const { log, error } = require('server/logging')('routes:email');
 
@@ -30,6 +31,9 @@ module.exports = async (ctx, next) => {
   if (! validateEmail(body.replyTo)) {
     return jsonError(response, 400, 'That email address doesn\'t look valid.');
   }
+
+  // Clean out any funny business
+  body.message = striptags(body.message);
 
   // Compose message and then send
   
