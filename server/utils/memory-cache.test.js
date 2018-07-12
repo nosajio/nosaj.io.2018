@@ -119,3 +119,23 @@ describe('.delete', () => {
     expect(deletedValue).toBe(1234);
   });
 });
+
+
+describe('.cache', () => {
+
+  test('should return empty array when cache is empty', () => {
+    const inst = new Cache();  
+    const items = inst.cache();
+    expect(items).toEqual([]);
+  });
+
+  test('should return "key", "value" and "expires" for each item', () => {
+    const inst = new Cache();  
+    inst.set('test-1', 1234);
+    
+    const items = inst.cache();
+    expect(items[0]).toHaveProperty('key');
+    expect(items[0]).toHaveProperty('expires');
+    expect(items[0]).toHaveProperty('value');
+  });
+});

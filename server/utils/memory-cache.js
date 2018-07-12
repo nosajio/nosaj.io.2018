@@ -17,6 +17,23 @@ class MemoryCache {
   }
 
   /**
+   * Return the whole cache (clears out expired items first)
+   * @returns {Object[]} cached items
+   */
+  cache() {
+    if (this._cache.size === 0) {
+      return [];
+    }
+    this.deleteExpired();
+    const fullCache = this._cache.entries();
+    const preparedCache = Array.from(fullCache).map(([key, entry]) => ({
+      key,
+      ...entry
+    }));
+    return preparedCache;
+  }
+
+  /**
    * Add or replace an item in the cache
    * @param {String} key 
    * @param {*} value A thing to cache
