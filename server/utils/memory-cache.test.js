@@ -58,12 +58,12 @@ describe('Constructor', () => {
 describe('.set', () => {
   let inst;
   
-  beforeEach(() => {
+  beforeAll(() => {
     inst = new Cache();
+    inst.set('test-add', 100);
   });
 
   test('should add a thing to the cache', () => {
-    inst.set('test-add', 100);
     const added = inst._cache.get('test-add');
     expect(added.value).toBe(100);
   });
