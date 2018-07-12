@@ -25,10 +25,14 @@ const contactPage = () => {
   }
 
   const markInvalidFields = fields => {
+    const invalidClassName = 'invalid-field';
+    // Reset all fields before running the validation
+    Object.values(validationElements).forEach($el => $el.classList.remove(invalidClassName));
+    // Validate passed fields
     if (! fields || ! fields.length) return;
     fields.forEach(field => {
       if (! Object.keys(validationElements).includes(`$${field}`)) return;
-      validationElements[`$${field}`].classList.add('invalid-field');
+      validationElements[`$${field}`].classList.add(invalidClassName);
     });
   }
   

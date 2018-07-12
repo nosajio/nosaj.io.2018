@@ -129,7 +129,7 @@
 
 .email-invalid {
   margin-bottom: srem(2);
-  font-size: srem(3);
+  font-size: srem(2);
   font-weight: var(--font-weight-medium);
 }
 
