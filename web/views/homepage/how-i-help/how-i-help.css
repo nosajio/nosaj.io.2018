@@ -23,9 +23,12 @@
   grid-template: 1fr \ auto;
   grid-gap: srem(4);
   margin-top: srem(3);
+  justify-content: center;
 }
 
 .hih-block {
+  position: relative;
+  padding: 0 srem(1) srem(1);
   /* margin: srem(4) 0; */
   /* border-radius: 6px; */
   /* border-top: 8px solid white; */
@@ -34,21 +37,31 @@
   .hih-block::before {
     content: "";
     display: block;
-    width: 125px;
-    height: 5px;
-    background: url('/ui/line-white.svg') center no-repeat;
-    margin: 0 auto srem(-1);
+    position: absolute;
+    z-index: 1;
+    top: 12px; right: 0;
+    bottom: 0; left: 0;
+    border: 4px solid white;
   }
 
 .hih-block__title {
+  /* Make the title look like it sits above the ::before outline */
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+  padding: 0 srem(2);
+
+  margin-bottom: .388em;
+  background: var(--color-black);
   font-size: srem(1);
   font-weight: var(--font-weight-bold);
-  margin-bottom: .5em;
   text-transform: uppercase;
 }
 
 .hih-block__desc {
-  font-size: srem(1);
+  position: relative;
+  z-index: 100;
+  font: 1rem var(--font-mono);
 }
 
 @media (--media-medium-up) {
@@ -59,7 +72,7 @@
   .hih { font-size: srem(1); margin-top: srem(8); }
 
   .hih-blocks {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 480px 480px;
     grid-gap: srem(8);
     margin-top: srem(8);
   }
@@ -67,6 +80,8 @@
   .hih-block {
     flex-basis: 50%;
   }
+
+  .hih-block::before { top: 16px; }
 
   .hih-block__title {
     font-size: srem(2);

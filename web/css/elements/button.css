@@ -48,7 +48,7 @@
 
 @media (--media-medium-up) {
   /* Make button groups flow horizontally on big screens */
-  .buttons { flex-flow: column wrap; }
+  .buttons { flex-flow: row wrap; }
   .buttons .button + .button {
     margin: 0 srem(2);
   }
