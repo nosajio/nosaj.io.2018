@@ -119,19 +119,12 @@
 
 }
 
-
-/* Errors and validation */
-  
 /* Handle invalid fields by highlighting them */
 .invalid-field {
   border: 2px solid #ebc342;
 }
 
-.email-invalid {
-  margin-bottom: srem(2);
-  font-size: srem(2);
-  font-weight: var(--font-weight-medium);
-}
+
 
 @media (--media-medium-up) {
   

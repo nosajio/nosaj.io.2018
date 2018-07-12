@@ -12,7 +12,7 @@
 }
 
 .section-title {
-  margin-bottom: 1em;
+  margin-bottom: .790em;
   font-weight: var(--font-weight-bold);
 }
 
@@ -20,7 +20,29 @@ h1.section-title { font-size: srem(3); }
 h2.section-title { font-size: srem(2); }
 h3.section-title { font-size: srem(1); }
 
+
+/* Email sent success message */
+.email-success {
+  border: 2px solid white;
+  padding: srem(3);
+}
+
+.email-success p {
+  margin: srem(2) 0;
+}
+
+/* Errors and validation */
+.email-invalid {
+  margin-bottom: srem(2);
+  font-size: srem(2);
+  font-weight: var(--font-weight-medium);
+}
+
 @media (--media-medium-up) {
   h1.section-title { font-size: srem(5); }
   h2.section-title { font-size: srem(3); }
+
+  .email-success p {
+    font-size: srem(1);
+  }
 }

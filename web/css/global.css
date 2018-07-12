@@ -18,15 +18,13 @@
   box-sizing: border-box;
 }
 
-html {
-  width: 100%;
-  font: var(--font-weight-normal) var(--font-size)/1.4 var(--font-sans-serif);
-}
+html { width: 100%; }
 
 body {
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  font: var(--font-weight-normal) var(--font-size)/1.4 var(--font-sans-serif);
 }
 
 /* Typography globals */

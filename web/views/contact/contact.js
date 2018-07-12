@@ -17,13 +17,11 @@ const contactPage = () => {
     $replyTo: $form.querySelector('.email-reply-to'),
     $message: $form.querySelector('.email-body'),
   }
-  
-  
-  const updateDomOnFail = (postdata, serverResponse) => {
-    const $fail = el('.email-fail');
-    $fail.classList.remove('hidden');
-  }
 
+  /**
+   * Mark validationElements invalid based on fields array.
+   * @param {String[]} fields Names of the fields to mark
+   */
   const markInvalidFields = fields => {
     const invalidClassName = 'invalid-field';
     // Reset all fields before running the validation
@@ -36,20 +34,45 @@ const contactPage = () => {
     });
   }
   
+  
+  /**
+   * Change DOM to 'failed' state. This is only for errors.
+   * @param {Object} postdata Data received from the client
+   * @param {Object} serverResponse Koa response object
+   */
+  const updateDomOnFail = (postdata, serverResponse) => {
+    const $fail = el('.email-fail');
+    $fail.classList.remove('hidden');
+  }
+  
+  
+  /**
+   * Change the dom to the 'invalid' state
+   * @param {Object} response 
+   */
   const updateDomOnInvalid = response => {
     const fields = response.data.invalid;
     const $invalid = el('.email-invalid');
     $invalid.classList.remove('hidden');
     markInvalidFields(fields);
   }
-  
+
+
+  /**
+   * Change the DOM to the 'success' state
+   */
   const updateDomOnSuccess = () => {
     $form.classList.add('hidden');
     const $success = el('.email-success');
     $success.classList.remove('hidden');
   }
   
-  $form.addEventListener('submit', e => {
+
+  /**
+   * Handle email form submit
+   * @param {Event} e Event from submit handler
+   */
+  const handleFormSubmit = e => {
     e.preventDefault();
     const data = {
       subject: $form.querySelector('input[name="subject"]').value,
@@ -63,7 +86,9 @@ const contactPage = () => {
           updateDomOnInvalid(err.response)
           : updateDomOnFail(data, err.response)
       );
-  });
+  }
+  
+  $form.addEventListener('submit', e => handleFormSubmit(e));
 }
 
 

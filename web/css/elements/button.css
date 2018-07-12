@@ -1,11 +1,11 @@
 .buttons {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
 }
 
   .buttons .button + .button {
-    margin-left: srem(2);
+    margin: srem(2) 0;
   }
 
 .button {
@@ -44,4 +44,12 @@
 
 .button--arrow:hover::after {
   transform: translateX(5px);
+}
+
+@media (--media-medium-up) {
+  /* Make button groups flow horizontally on big screens */
+  .buttons { flex-flow: column wrap; }
+  .buttons .button + .button {
+    margin: 0 srem(2);
+  }
 }
