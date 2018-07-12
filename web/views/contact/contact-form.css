@@ -120,8 +120,14 @@
 }
 
 /* Handle invalid fields by highlighting them */
+@keyframes invalid-field {
+  50% {
+    background: #ffeba7;
+  }
+}
+
 .invalid-field {
-  border: 2px solid #ebc342;
+  animation: invalid-field both 600ms 3 var(--easeInOutSine);
 }
 
 

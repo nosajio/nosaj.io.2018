@@ -28,10 +28,12 @@ const contactPage = () => {
     Object.values(validationElements).forEach($el => $el.classList.remove(invalidClassName));
     // Validate passed fields
     if (! fields || ! fields.length) return;
-    fields.forEach(field => {
-      if (! Object.keys(validationElements).includes(`$${field}`)) return;
-      validationElements[`$${field}`].classList.add(invalidClassName);
-    });
+    setTimeout(() => {
+      fields.forEach(field => {
+        if (! Object.keys(validationElements).includes(`$${field}`)) return;
+        validationElements[`$${field}`].classList.add(invalidClassName);
+      });
+    }, 20);
   }
   
   
