@@ -3,21 +3,54 @@
   flex-flow: row-reverse nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: srem(1);
+  padding: srem(1) srem(2) srem(1);
   width: 100%;
 }
 
-.nosaj-header__logo {
-  display: block;
-  width: 100%;
-  max-width: srem(4);
+  .nosaj-header__logo {
+    display: block;
+    width: 100%;
+    max-width: srem(4);
+    flex: 0 0 auto;
+    transition: all 400ms var(--easeInOutSine);
+    /* Logo fits better on the right when it's rotated */
+    transform: rotate(-26deg);
+  }
+
+  .nosaj-header__logo > svg {
+    display: block;
+    width: 100%;
+  }
+
+  .nosaj-header__nav {
+    flex: 2 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: srem(1);
+  }
+
+  .nosaj-header__nav-item {
+    display: inline-block;
+    font-size: .9rem;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .nosaj-header__nav-item + .nosaj-header__nav-item { 
+    margin-left: srem(2);
+  }
+
+a.nav-link {
+  text-transform: uppercase;
+  color: white;
 }
 
-.nosaj-header__logo > svg {
-  display: block;
-  width: 100%;
+/* Change colours for light on dark variation */
+.nosaj-header--dark a.nav-link {
+  color: var(--color-black);
 }
 
+
+/* Special back to posts link */
 a.back-to-posts {
   display: block;
   width: 38px;
@@ -28,10 +61,43 @@ a.back-to-posts {
 
 @media (--media-medium-up) {
   .nosaj-header {
-    padding: srem(2);
+    padding: srem(3);
+    flex-flow: row nowrap;
   }
   
   .nosaj-header__logo {
-    max-width: srem(5);
+    max-width: srem(7);
+    transform: rotate(0deg);
+    margin-right: srem(6);
+  }
+
+  .nosaj-header__nav {
+    display: block;
+    margin-right: 0;
+  }
+
+  .nosaj-header__nav-item {
+    font-size: srem(1);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .nosaj-header__nav-item + .nosaj-header__nav-item {
+    margin-left: 0;
+  }
+
+  /* Add elements between nav items */
+  .nosaj-header__nav-item + .nosaj-header__nav-item::before {
+    content: "//";
+    font-weight: var(--font-weight-light);
+    font-size: srem(1);
+    display: inline-block;
+    color: white;
+    opacity: .7;
+    margin: srem(2);
+  }
+
+  /* The dark variation of the ::before element */
+  .nosaj-header--dark .nosaj-header__nav-item + .nosaj-header__nav-item::before {
+    color: var(--color-black);
   }
 }
