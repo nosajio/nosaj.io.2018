@@ -21,7 +21,7 @@
   
   /* A readable width */
   .grid-container--readable {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: srem(-2) auto srem(-2);
   }
 
 .grid-section {

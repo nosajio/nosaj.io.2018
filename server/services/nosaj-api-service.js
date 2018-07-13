@@ -23,7 +23,7 @@ const getPosts = async () => {
 
 const getPost = async slug => {
   const posts = await getPosts();
-  return posts.data.find(p => p.slug === slug);
+  return posts.find(p => p.slug === slug);
 }
 
 module.exports = { getPosts, getPost }
