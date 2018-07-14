@@ -1,14 +1,13 @@
 if posts
   section.grid-section.posts
-    .posts-grid
+    .posts-list
       each post in posts
-        article.posts-grid__post
-          a(href=`/r/${post.slug}`)
-            span.posts-grid__post-img
-              if post.covers.length 
-                img(src=post.covers[0])
-            span.posts-grid__post-info
-              h2.posts-grid__post-title= post.title
-              span.posts-grid__post-meta
-                span.posts-grid__post-meta-date= post.dateString
+        a(href=`/r/${post.slug}`).post-item
+          span.post-item__cover
+            if post.covers.length 
+              img(src=post.covers[0])
+          span.post-item__detail
+            h2.post-item__title= post.title
+            span.post-item__date= post.dateString
+              
     a.posts-link(href='/r') All posts

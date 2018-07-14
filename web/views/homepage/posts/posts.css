@@ -1,51 +1,12 @@
+@import '../../../css/elements/posts-list.css';
+
+
 .grid-section.posts {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin: srem(5) 0 srem(5);
 }
-
-.posts-grid {
-  display: grid;
-  grid-gap: srem(2);
-}
-
-.posts-grid__post-img, 
-.posts-grid__post-info,
-.posts-grid__post-meta {
-  display: block;
-}
-
-  .posts-grid__post {
-  }
-
-  .posts-grid__post a { text-decoration: none; color: var(--homepage-text); }
-
-  .posts-grid__post-img {
-    width: 100%;
-  }
-
-  .posts-grid__post-img img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .posts-grid__post-info {
-    margin-top: 1rem;
-  }
-
-  .posts-grid__post-title {
-    font-size: srem(1);
-    font-weight: var(--font-weight-medium);
-  }
-
-  .posts-grid__post-meta {
-    margin-top: srem(-1);
-    font: srem(-1) var(--font-mono);
-  }
-
-    .posts-grid__post-meta-date {}
 
 .posts-link {
   display: block;
@@ -81,9 +42,5 @@
   .grid-section.posts {
     margin-bottom: srem(9);
     margin-top: srem(9);
-  }
-
-  .posts-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
