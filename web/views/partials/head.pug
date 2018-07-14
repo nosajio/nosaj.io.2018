@@ -6,13 +6,14 @@ head
   meta(name="twitter:card"        content="summary_large_image")
   meta(name="twitter:creator"     content="@__nosaj")
   //- OG tags
-  //- meta(property="og:url"          content=head.ogUrl || "https://nosaj.io/")
-  //- meta(property="og:type"         content="website")
-  //- meta(property="og:title"        content=head.title || "Jason makes the internet")
-  //- meta(property="og:description"  content=head.ogDescription || "I design & make measurable products with modern web technologies.")
-  //- meta(property="og:image"        content=head.ogImage || "http://a.nosaj.io/og-nosaj.png")
+  meta(property="og:type"         content="website")
+  meta(property="og:title"        content=meta.title || "Jason makes the internet")
+  meta(property="og:url"          content=meta.og.url || "https://nosaj.io/")
+  meta(property="og:description"  content=meta.og.description || "I design & make measurable products with modern web technologies.")
+  meta(property="og:image"        content=meta.og.image || "http://a.nosaj.io/og-nosaj.png")
   //- All other meta tags
   meta(name="viewport"            content="width=device-width, initial-scale=1")
+  title= meta.title
 
   //- Configure Typekit
   style.
