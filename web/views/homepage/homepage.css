@@ -17,12 +17,13 @@
   --homepage-complementary: var(--color-red);
   --homepage-text: white;
 
+  position: relative;
   background: var(--homepage-background);
   color: var(--homepage-text);
 }
 
 .section-title {
-  margin-bottom: 1em;
+  margin-bottom: .6em;
   font-weight: var(--font-weight-bold);
 }
 

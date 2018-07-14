@@ -4,6 +4,7 @@
   --posts-text-color: white;
   --posts-text-color-light: #6f7179;
   background: #121318;
+  color: var(--posts-text-color);
 }
 
 .posts-list {
