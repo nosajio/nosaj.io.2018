@@ -15,9 +15,14 @@
   --post-text-color-light: #A7AAB6;
 }
 
+.post-cover {
+  animation: fade-in 600ms 1 both var(--easeInOutSine);
+}
+
 .post-content {
   /* margin-top: srem(5); */
   font-size: 1.111rem;
   line-height: 1.5;
   color: var(--post-text-color);
+  animation: fade-from-bottom-small 600ms 300ms 1 both var(--easeInOutSine);
 }

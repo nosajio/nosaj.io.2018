@@ -7,6 +7,11 @@
   color: white;
 }
 
+.message-me {
+  animation: fade-from-bottom-small 600ms 300ms 1 both var(--easeInOutSine);  
+}
+
+/* Hiddel class is used for toggling parts of the ui */
 .hidden {
   display: none;
 }

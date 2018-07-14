@@ -3,6 +3,10 @@
  * move over large arcs, and small ones over smaller arcs.
  */
 
+ @keyframes fade-in {
+   from { opacity: 0; }
+ }
+ 
 /* Move from a direction */
 
 @keyframes from-top-medium {
@@ -81,6 +85,12 @@
 }
 
 /* Fade in from top */
+@keyframes fade-from-top-small {
+  from {
+    transform: translateY(-1vh);
+    opacity: 0;
+  }
+}
 @keyframes fade-from-top-medium {
   from {
     transform: translateY(-5vh);
@@ -89,9 +99,21 @@
 }
 
 /* Fade in from bottom */
+@keyframes fade-from-bottom-small {
+  from {
+    transform: translateY(5vh);
+    opacity: 0;
+  }
+}
 @keyframes fade-from-bottom-medium {
   from {
     transform: translateY(20vh);
+    opacity: 0;
+  }
+}
+@keyframes fade-from-bottom-large {
+  from {
+    transform: translateY(50vh);
     opacity: 0;
   }
 }

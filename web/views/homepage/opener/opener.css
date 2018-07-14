@@ -50,7 +50,9 @@
 .opener__text {
   font-size: srem(5);
   font-weight: var(--font-weight-bold);
+  line-height: 1.3;
   text-transform: uppercase;
+  animation: fade-from-left-small 500ms 200ms 1 both var(--easeInOutSine);
 }
 
 .opener__intro {
@@ -58,7 +60,12 @@
   align-items: center;
   flex-flow: column nowrap;
   margin-top: srem(6);
+  animation: fade-from-left-small 500ms 1s 1 both var(--easeInOutSine);  
 }
+
+  .opener__intro-text {
+    max-width: 666px;
+  }
   
   .opener__intro .jason-img {
     display: block;

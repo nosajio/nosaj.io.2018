@@ -15,6 +15,7 @@
   grid-gap: srem(2);
   align-items: start;
   padding: srem(1);
+  animation: fade-from-bottom-small 600ms 100ms 1 both var(--easeInOutSine);
 }
 
 a.post-item {

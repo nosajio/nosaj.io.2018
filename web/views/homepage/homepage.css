@@ -22,6 +22,10 @@
   color: var(--homepage-text);
 }
 
+.homepage .nosaj-header {
+  animation: fade-from-top-small 800ms 2s 1 both var(--easeInOutSine);  
+}
+
 .section-title {
   margin-bottom: .6em;
   font-weight: var(--font-weight-bold);
