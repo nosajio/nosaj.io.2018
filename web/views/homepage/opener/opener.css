@@ -43,6 +43,8 @@
   text-align: center;
   min-height: 100vh;
   max-width: 1000px;
+  /* Compensate for fixed header */
+  padding-top: srem(5);
 }
 
 .opener__text {
@@ -79,6 +81,7 @@
   
   .opener__text {
     font-size: srem(7);
+    padding-top: 0;
   }
 
   .opener__intro {
