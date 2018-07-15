@@ -5,6 +5,8 @@ const { msopts, ms } = require('modularscale-helpers');
 
 const { error, log } = require('server/logging')('compile-postcss');
 
+const production = process.env.ENV === 'production';
+
 // Configure modularscale plugin
 msopts({
   scale: 1.2656,
@@ -24,6 +26,12 @@ const postcssPlugins = [
   // require('postcss-css-variables'),
   require('postcss-functions')({ functions: postcssFns }),
 ];
+
+// Production only plugins
+if (production) {
+  // Css minification
+  postcssPlugins.push( require('cssnano')({ preset: 'default' }) );
+}
 
 /**
  * Open a css file and buffer the contents to postcss
