@@ -22,9 +22,22 @@
     display: block;
     width: 15px;
     height: 10px;
+    margin-right: srem(-1);
     background: center left / 100% auto no-repeat url('/ui/arrow-grey.svg');
+    opacity: .7;
   }
 
   .post-meta__item { 
+    margin: 0;
+  }
+
+  .post-meta__item + .post-meta__item::before {
+    content: "//";
+    font-weight: var(--font-weight-light);
+    font-size: srem(-1);
+    letter-spacing: -4px;
+    display: inline-block;
+    color: var(--post-text-color-light);
+    opacity: .7;
     margin: 0 srem(-1);
   }

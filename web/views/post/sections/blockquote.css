@@ -1,5 +1,10 @@
 .post-body blockquote {
   margin: srem(5) auto;
   max-width: 600px; 
+  width: 100%;
   font: 1em/1.5 var(--font-mono);
+}
+
+.post-body blockquote p {
+  width: 100%;
 }

@@ -116,7 +116,7 @@ a.back-to-posts {
     display: inline-block;
     color: white;
     opacity: .5;
-    margin: srem(2);
+    margin: 0 srem(2);
   }
 
   /* The dark variation of the ::before element */
