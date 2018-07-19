@@ -1,5 +1,5 @@
 const urls = {
-  nosajApi: 'http://api.nosaj.io',
+  nosajApi: process.env.NOSAJ_API,
 }
 
 module.exports = urls;
