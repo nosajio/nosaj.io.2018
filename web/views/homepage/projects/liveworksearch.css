@@ -1,0 +1,11 @@
+.project.project--liveworksearch {
+  --project-color: #f6e75e;
+  --project-background: no-repeat url('/work/lws/big-map.jpg') center / cover;
+  --project-text: white;
+}
+
+.project--liveworksearch .project-title { color: var(--project-color); }
+
+.project--liveworksearch .project-link {
+  /* border-color: var(--project-color); */
+}

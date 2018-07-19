@@ -1,0 +1,100 @@
+/* Project variations */
+@import './liveworksearch.css';
+@import './justalevel.css';
+@import './ripcast.css';
+
+.projects {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.project {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: srem(5) 0;
+  background: var(--project-background, transparent);
+}
+
+/* Spacing between body and preview */
+.project__body + .project__preview,
+.project__preview + .project__body { margin-top: srem(4); }
+
+/* Project device previews: mask off videos and previews to a certain size */
+.project-frame {
+  overflow: hidden;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, .3);
+}
+
+  .project-frame--mobile > video,
+  .project-frame--tablet > video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.project-frame--mobile { max-width: 220px; border-radius: 10px; }
+.project-frame--tablet { border-radius: 1rem;  }
+
+
+/* Project body text */
+.project__body { padding: 0 srem(-1); }
+.project__preview { padding: 0 srem(-1); }
+
+.project-title {
+  font-size: srem(3);
+  font-weight: var(--font-weight-bold);
+  color: var(--project-text, white);
+  line-height: 1.3;
+}
+
+.project__body p {
+  color: var(--project-text, white);
+  margin: srem(2) 0;
+}
+
+.project-links {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.project-link {
+  display: inline;
+  border-bottom: 3px solid var(--project-color, white);
+  color: var(--project-text, white);
+}
+
+.project-link + .project-link {
+  margin-top: srem(-3);  
+}
+
+@media (--media-max-width-up) {
+  .project {
+    flex-flow: row nowrap;
+    padding: srem(9) 0;
+  }
+
+  .project__preview { padding: 0; }
+
+  /* Column variant */
+  .project.project--column { flex-flow: column nowrap; }
+  
+  /* Spacing between body and preview */
+  .project__body + .project__preview,
+  .project__preview + .project__body { margin: 0 0 0 srem(7); }
+
+  .project.project--column .project__body + .project__preview,
+  .project.project--column .project__preview + .project__body { margin: srem(7) 0 0 0; }
+
+  /* Device frames */
+  .project-frame--mobile { max-width: 330px; border-radius: 30px; }
+  .project-frame--tablet { max-width: 920px; }
+
+  .project__body { max-width: 650px; padding: 0; }
+  .project__body p,
+  .project-link { font-size: 1.11rem; }
+  .project-title { font-size: srem(4); }
+}

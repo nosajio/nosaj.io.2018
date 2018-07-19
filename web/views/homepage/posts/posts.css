@@ -10,7 +10,6 @@
 
 .posts-link {
   display: block;
-  margin-top: srem(6);
   padding: 1rem srem(2);
   text-decoration: none;
   font-size: srem(1);

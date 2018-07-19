@@ -20,7 +20,7 @@
 
 .hih-blocks {
   display: grid;
-  grid-template: 1fr \ auto;
+  grid-template-columns: 1fr;
   grid-gap: srem(4);
   margin-top: srem(3);
   justify-content: center;
@@ -65,16 +65,12 @@
 }
 
 @media (--media-medium-up) {
-  
-}
-
-@media (--media-medium-up) {
   .hih { font-size: srem(1); margin-top: srem(8); }
 
   .hih-blocks {
-    grid-template-columns: 480px 480px;
-    grid-gap: srem(8);
-    margin-top: srem(8);
+    grid-template-columns: minmax(auto, 480px) minmax(auto, 480px);
+    grid-gap: srem(5);
+    margin-top: srem(5);
   }
   
   .hih-block {
@@ -85,5 +81,12 @@
 
   .hih-block__title {
     font-size: srem(2);
+  }
+}
+
+@media (--media-large-up) {
+  .hih-blocks {
+    grid-gap: srem(8);
+    margin-top: srem(8);
   }
 }

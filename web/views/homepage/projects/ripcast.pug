@@ -1,0 +1,14 @@
+.project.project--ripcast
+  .project__preview
+    .project-frame.project-frame--mobile(
+      data-video-url='/work/rip/rip-project-run.mp4'
+      )
+
+  .project__body
+    h2.project-title Personal podcasts from your favourite YouTube content.
+    p Ripcast is an idea I worked on for around a month to make it easier to listen to YouTube content while on the move.
+    p To solve the problem, I designed and built a simple web application for curating podcasts. The frontend runs on React. The processing system uses NodeJS with Redis to stream videos through FFMPEG before they get saved to S3 for listening.
+    .project-links
+      a.project-link(href='/r/ripcast-writeup' target='_blank') An in depth writeup on how I made Ripcast
+      a.project-link(href='http://ripcast.in' target='_blank') ripcast.in
+  

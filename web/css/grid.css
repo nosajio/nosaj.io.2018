@@ -35,11 +35,12 @@
   z-index: 100;
 }
 
-  .grid-section--full {
+  .grid-section-full {
+    width: 100%;
     grid-column: span 3;
   }
 
-@media (min-width: var(--max-width)) {
+@media (--media-max-width-up) {
   .grid-container {
     padding-left: 0;
     padding-right: 0;

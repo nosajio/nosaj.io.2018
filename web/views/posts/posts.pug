@@ -4,7 +4,7 @@ html
   body.posts
     include /partials/header-light.pug
     .grid-container.grid-container--fluid
-      .grid-section--full.posts-list.posts-list--focus-first
+      .grid-section-full.posts-list.posts-list--focus-first
         each post in posts
           a.post-item(href=`/r/${post.slug}`)
             .post-item__cover

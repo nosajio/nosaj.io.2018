@@ -1,48 +1,53 @@
 import runOpener from './opener/opener';
-import ProjectsGallery from './projects-gallery/projects-gallery';
 import { el, debounce } from 'utils/helpers';
+import { initProjectVideos } from './projects/projects';
 
-const playSlideVideos = slides => {
-  const videos = Array.from(slides).map(slide => slide.querySelector('video'));
-  if (videos.length) {
-    videos.forEach(v => v && v.play());
-  }
+/**
+ * Determine if the video is currently in view
+ * @param {Object} v The video object returned by initProjectVideos
+ */
+const isVideoInView = v => {
+  // Calculate the 'safe area' that the video will play in
+  const playOffset = 2; // Fraction of the screen the video must be in before it plays
+  const windowHeight = window.innerHeight / playOffset;
+  // Check if video is in the safe area
+  const videoOffset = v.parent.getBoundingClientRect();
+  const videoTop = videoOffset.top;
+  const videoBottom = videoOffset.bottom;
+  const inView = (videoTop - windowHeight <= 0) && (videoBottom - windowHeight > 0);
+  return inView;
 }
 
-const pauseSlideVideos = slides => {
-  const videos = Array.from(slides).map(slide => slide.querySelector('video'));
-  if (videos.length) {
-    videos.forEach(v => v && v.pause());
+/**
+ * Play videos when they're in view. Pause them when they're out of view
+ * @param {Object[]} videos 
+ */
+const primeVideosOnScroll = videos => {
+  const handleScrollEvent = () => {
+    // Check if any of the videos are in view and change their plaing / paused
+    // state accordingly
+    videos.forEach(v => {
+      const inView = isVideoInView(v);
+      if (inView) {
+        if (! v.video.paused) return;
+        v.video.play();
+        v.video.loop = true;
+      } else {
+        if (v.video.paused) return;
+        v.video.pause();
+      }
+    });
   }
-}
-
-const initProjectsGallery = () => {
-  const galleryElement = el('.projects-gallery__content');
-  const gallery = new ProjectsGallery(galleryElement);
-
-  // Play in-view video video when landing on slide
-  gallery.on('change', e => playSlideVideos([e.element]) );
-
-  // Pause all videos on slide interaction on touch
-  gallery.on('touch', e =>  pauseSlideVideos(e.slides) );
-
-  // Autoplay the first slide's video when it's in view
-  window.addEventListener('scroll', e => {
-    debounce(400).then(() => {
-      const offset = window.innerHeight / 2;
-      const scrollTop = galleryElement.getBoundingClientRect().top;
-      const scrollCenter = scrollTop - offset;
-      if (scrollCenter > 0) {
-        return;
-      } 
-      playSlideVideos([galleryElement.children[0]]);
-    }, false);
-  });
+  
+  window.addEventListener('scroll', event => {
+    debounce(400).then(() => handleScrollEvent())
+  }, false);
 }
 
 const initHomepage = () => {
   runOpener();
-  initProjectsGallery();
+  const projectVideos = initProjectVideos();
+  primeVideosOnScroll( projectVideos );
 }
 
-initHomepage()
+window.onload = initHomepage;
