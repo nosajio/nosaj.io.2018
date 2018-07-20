@@ -89,7 +89,7 @@ a.back-to-posts {
   }
   
   .nosaj-header__logo {
-    max-width: srem(6);
+    max-width: srem(5);
     transform: rotate(0deg);
     margin-right: srem(4);
   }

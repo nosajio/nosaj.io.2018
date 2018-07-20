@@ -15,8 +15,10 @@ a.post-item {
   flex-flow: column nowrap;
   justify-content: flex-end;
   text-decoration: none;
-  border-radius: 0 0 7px 7px;
-  transition: all 500ms var(--easeOutCustom);
+  border-radius: 4px;
+  transition: all 500ms var(--easeInOutSine);
+  overflow: hidden;
+  border: 1px transparent solid;
   color: white;
 }
 
@@ -39,6 +41,7 @@ a.post-item {
 
     a.post-item:hover {
       background: rgba(255, 255, 255, .04);
+      border-color: var(--color-red);
     }
 
     
@@ -67,11 +70,11 @@ a.post-item {
 @media (--media-small-up) {
   .posts-list {
     grid-template-columns: repeat(2, 1fr);
-    padding: srem(2);
+    padding: srem(3);
   }
 
   .post-item__cover {
-    margin-bottom: srem(1);
+    /* margin-bottom: srem(1); */
   }
 }
 
@@ -79,7 +82,7 @@ a.post-item {
   .posts-list {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: srem(4);
-    padding: srem(5);
+    padding: srem(6);
     max-width: 1500px;
   }
 
