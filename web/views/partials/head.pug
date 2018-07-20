@@ -1,24 +1,32 @@
 head
 
   //- For Google
-  meta(name="google-site-verification" content="PF-4AUGrHItlJCD2L3SDJKv7sKEZsdX7ixLHeorRimE")
+  meta(name='google-site-verification' content='PF-4AUGrHItlJCD2L3SDJKv7sKEZsdX7ixLHeorRimE')
   //- Twitter crap
-  meta(name="twitter:card"        content="summary_large_image")
-  meta(name="twitter:creator"     content="@__nosaj")
+  meta(name='twitter:card'        content='summary_large_image')
+  meta(name='twitter:creator'     content='@__nosaj')
   //- OG tags
-  meta(property="og:type"         content="website")
-  meta(property="og:title"        content=meta.title || "Jason makes the internet")
-  meta(property="og:url"          content=meta.og.url || "https://nosaj.io/")
-  meta(property="og:description"  content=meta.og.description || "I design & make measurable products with modern web technologies.")
-  meta(property="og:image"        content=meta.og.image || "http://a.nosaj.io/og-nosaj.png")
+  meta(property='og:type'         content='website')
+  meta(property='og:title'        content=meta.title || 'Jason makes the internet')
+  meta(property='og:url'          content=meta.og.url || 'https://nosaj.io/')
+  meta(property='og:description'  content=meta.og.description || 'I design & make measurable products with modern web technologies.')
+  meta(property='og:image'        content=meta.og.image || 'http://a.nosaj.io/og-nosaj.png')
   //- All other meta tags
-  meta(name="viewport"            content="width=device-width, initial-scale=1")
+  meta(name='viewport'            content='width=device-width, initial-scale=1')
+  meta(name='theme-color'         content='#0F141D')
+  meta(name='apple-mobile-web-app-status-bar-style' content='black-translucent')
+
+
   title= meta.title
+
+  //- Shortcut icons
+  link(href='https://a.nosaj.io/nosaj-icon.png' rel='icon' sizes='192x192')
+  link(href='https://a.nosaj.io/nosaj-icon.png' rel='apple-touch-icon')
 
   //- Configure Typekit
   style.
-    @import url("https://use.typekit.net/icd0qhf.css");
-    @import url("https://fonts.googleapis.com/css?family=Overpass+Mono:400,700");
+    @import url('https://use.typekit.net/icd0qhf.css');
+    @import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,700');
 
   if css
     style !{css}
