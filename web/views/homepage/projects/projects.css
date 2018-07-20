@@ -26,6 +26,7 @@
 .project-frame {
   overflow: hidden;
   box-shadow: 0 5px 12px rgba(0, 0, 0, .3);
+  border-radius: 10px;
 }
 
   .project-frame--mobile > video,
@@ -35,7 +36,7 @@
     height: auto;
   }
 
-.project-frame--mobile { max-width: 220px; border-radius: 10px; }
+.project-frame--mobile { max-width: 220px; }
 .project-frame--tablet { border-radius: 1rem;  }
 
 
@@ -55,6 +56,11 @@
   margin: srem(2) 0;
 }
 
+.project__body p a {
+  color: var(--project-text, white);
+  text-decoration: underline;
+}
+
 .project-links {
   display: flex;
   flex-flow: column nowrap;
@@ -63,8 +69,13 @@
 
 .project-link {
   display: inline;
-  border-bottom: 3px solid var(--project-color, white);
+  background: repeat-x linear-gradient(to top, var(--project-color, white) 0%, var(--project-color, white) 100%, transparent 100%) bottom / 100% 2px;
   color: var(--project-text, white);
+}
+
+.project-link:hover {
+  text-decoration: none;
+  background-image: linear-gradient(to top, var(--project-text, white) 0%, var(--project-text, white) 100%, transparent 100%);
 }
 
 .project-link + .project-link {
