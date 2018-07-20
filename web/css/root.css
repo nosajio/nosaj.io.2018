@@ -19,6 +19,7 @@
   --easeOutCustom: cubic-bezier(0.880, 0.535, 0.400, 1.270);
 
   /* Colors */
-  --color-black: #101018;
+  /* --color-black: #101018; */
+  --color-black: #0f141d;
   --color-red: rgb(255, 70, 70);
 }
