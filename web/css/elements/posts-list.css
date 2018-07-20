@@ -41,7 +41,7 @@ a.post-item {
 
     a.post-item:hover {
       background: rgba(255, 255, 255, .04);
-      border-color: var(--color-red);
+      border-color: rgba(255, 255, 255, .1);
     }
 
     
