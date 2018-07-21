@@ -13,7 +13,7 @@ exports.composePageMeta = (
   title='Jason makes the internet',
   description='',
   path='/',
-  image='https://a.nosaj.io/og-nosaj.png'
+  image='https://a.nosaj.io/og-nosaj-6.png'
 ) => (view) => ({
   ...view,
   meta: {
