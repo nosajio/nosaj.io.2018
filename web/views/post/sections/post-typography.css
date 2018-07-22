@@ -1,5 +1,6 @@
 .post-body p {
   margin: srem(1) auto;
+  width: 100%;
 }
 
   .post-body p a {
@@ -28,4 +29,13 @@
 .post-body a:visited {
   opacity: .6;
   text-decoration: line-through;
+}
+
+/* Bold and italicised */
+.post-body b, .post-body strong {
+  font-weight: var(--font-weight-bold);
+}
+
+.post-body i, .post-body em {
+  font-style: italic;
 }

@@ -1,5 +1,7 @@
-.post-body .image {
+.post-body .image,
+.post-body .video {
   margin: srem(4) auto;
+  width: 100%;
 }
 
 .post-body .image img {
@@ -13,4 +15,9 @@
   font-size: 1rem;
   font-style: italic;
   margin-top: srem(1);
+}
+
+.post-body iframe {
+  display: block;
+  width: 100%;
 }
