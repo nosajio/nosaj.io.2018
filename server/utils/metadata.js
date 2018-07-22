@@ -1,3 +1,4 @@
+const package = require('../../package.json');
 const { nosajUrl } = require('./urls');
 
 /**
@@ -19,6 +20,7 @@ exports.composePageMeta = (
   meta: {
     title: `${title} // Jason Howmans`,
     description,
+    version: package.version,
     og: {
       url: nosajUrl(path),
       description,
