@@ -9,6 +9,7 @@
 @import './sections/media.css';
 @import './sections/blockquote.css';
 @import './sections/hr.css';
+@import './sections/post-footer.css';
 
 .post {
   --post-text-color: var(--color-black);

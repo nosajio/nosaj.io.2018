@@ -21,9 +21,11 @@ const getPosts = async () => {
   return posts.data;
 }
 
+const findPost = (slug, posts=[]) => posts.find(p => p.slug === slug);
+
 const getPost = async slug => {
   const posts = await getPosts();
-  return posts.find(p => p.slug === slug);
+  return findPost(slug, posts);
 }
 
-module.exports = { getPosts, getPost }
+module.exports = { getPosts, getPost, findPost }
