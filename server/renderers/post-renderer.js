@@ -1,8 +1,10 @@
-const { getViewHTML }         = require('../compiler/compile-views')
-const { assetFromFS, memfs }  = require('../compiler/compile-assets');
-const { getPosts, findPost }  = require('../services/nosaj-api-service');
-const { composePageMeta }     = require('../utils/metadata');
-const { log, error }          = require('../logging')('render-post');
+const { getViewHTML }           = require('../compiler/compile-views')
+const { assetFromFS, memfs }    = require('../compiler/compile-assets');
+const { getPosts, findPost }    = require('../services/nosaj-api-service');
+const { composePageMeta }       = require('../utils/metadata');
+const { nosajUrl }              = require('../utils/urls');
+const { log, error }            = require('../logging')('render-post');
+const { twitterShareUrl, facebookShareUrl } = require('../utils/social');
 
 /**
  * Take n paragraphs from the html string. For use with the page description
@@ -49,7 +51,18 @@ const renderPost = async slug => {
   const js  = assetFromFS('post.js');
   const allPosts = await getPosts();
   const post = findPost(slug, allPosts);
+  const postUrl = nosajUrl(`/r/${slug}`);
 
+  // Augment excerpt text with share links
+  if (post.excerpts && Array.isArray(post.excerpts)) {
+    post.excerpts = post.excerpts.map(ex => ({
+      text: ex,
+      withUrl: `"${ex}"\n${postUrl}`,
+      tweetUrl: twitterShareUrl(ex, postUrl),
+      facebookUrl: facebookShareUrl(ex, postUrl)
+    }));
+  }
+  
   // Nest the next posts in with this one
   post.next = nextPosts(allPosts, post, 3);
 

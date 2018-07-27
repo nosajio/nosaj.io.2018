@@ -1,26 +1,27 @@
-footer.grid-section.post-footer
+footer.post-footer
 
-  .thanks ❤️ Thank you for reading
+  section.post-footer__section.post-thanks ❤️ Thank you for reading
 
   unless ! post.excerpts || post.excerpts.length === 0
-    .post-social
-      h3 Share a quote from this post
-      .excerpts-gallery
+    section.post-footer__section.post-social
+      h3.post-footer__title Share a quote
+      .excerpts-gallery.slider
         each excerpt in post.excerpts
           .excerpts-gallery__excerpt
             .post-card.excerpt-card
-              .excerpt-card__body= excerpt
+              .excerpt-card__body= excerpt.withUrl
               .excerpt-card__actions
-                a.excerpt-action.excerpt-action--twitter(href='') Twitter
-                a.excerpt-action.excerpt-action--facebook(href='') Facebook
-                a.excerpt-action.excerpt-action--copy(href='') Copy
+                a.excerpt-action.excerpt-action--twitter(href= excerpt.tweetUrl target='_blank') Tweet
+                a.excerpt-action.excerpt-action--facebook(href= excerpt.facebookUrl target='_blank') Facebook
+                a.excerpt-action.excerpt-action--copy(href='#' data-copy= excerpt.withUrl) Copy
 
   unless ! post.next || post.next.length === 0
-    .post-next
-      h3 Read next
-        .next-posts-gallery
-          each next in post.next
-            .next-posts-gallery__post
-              a.post-card.next-post-card
-                .next-post-card__cover(style={ background: `url('${next.covers[0]}') center / cover no-repeat` })
-                .next-post-card__title= next.title
+    section.post-footer__section.post-next
+      h3.post-footer__title Read next
+      .next-posts-gallery
+        each next in post.next
+          .next-posts-gallery__post
+            a.next-post-card(href=`/r/${next.slug}`)
+              .next-post-card__cover
+                img(src=next.covers[0] alt='')
+              .next-post-card__title= next.title

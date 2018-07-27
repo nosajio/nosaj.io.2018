@@ -1,0 +1,20 @@
+.slider {
+  display: flex;
+  flex-flow: row nowrap;
+  transition: all 450ms ease;
+  cursor: grab;
+  width: 100%;
+  min-width: min-content;
+}
+
+/* When the slider is being interacted with, remove transitions */
+.slider.touch { 
+  transition: none;
+  cursor: grabbing;
+}
+
+.slider > * { flex: 1 0 auto; }
+
+@media (--media-medium-up) {
+  
+}

@@ -1,5 +1,8 @@
 @import '../../css/global.css';
 
+/* Slider styles */
+@import '../../css/slider.css';
+
 /* Different sections of blog posts */
 @import './sections/post-typography.css';
 @import './sections/lists.css';
@@ -20,7 +23,8 @@
   animation: fade-in 600ms 1 both var(--easeInOutSine);
 }
 
-.post-content {
+.post-content,
+.post-footer {
   font-size: 1.111rem;
   line-height: 1.5;
   color: var(--post-text-color);

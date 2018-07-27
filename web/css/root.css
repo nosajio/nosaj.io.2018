@@ -3,6 +3,7 @@
 :root {
   /* Layout vars */
   --max-width: 1400px;
+  --max-width-readable: 820px;
   --mobile-padding: srem(-1); /* Amount of padding to apply to the sides of the screens < max-width */
   
   /* Typography vars */

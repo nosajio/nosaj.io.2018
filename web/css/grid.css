@@ -50,6 +50,6 @@
 
 @media (min-width: 820px) {
   .grid-container--readable {
-    grid-template-columns: auto 820px auto;
+    grid-template-columns: auto var(--max-width-readable) auto;
   }
 }

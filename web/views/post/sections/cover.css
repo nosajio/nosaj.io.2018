@@ -1,6 +1,7 @@
 .post-cover {
   width: 100%;
   margin-bottom: srem(4);
+  background: var(--color-black);
 }
 
 .post-cover img {

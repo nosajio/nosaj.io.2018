@@ -18,13 +18,10 @@ exports.composePageMeta = (
 ) => (view) => ({
   ...view,
   meta: {
+    url: nosajUrl(path),
     title: `${title} // Jason Howmans`,
     description,
     version: package.version,
-    og: {
-      url: nosajUrl(path),
-      description,
-      image,
-    }
+    image,
   }
 });

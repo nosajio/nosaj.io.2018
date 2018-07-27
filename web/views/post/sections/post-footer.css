@@ -1,3 +1,129 @@
 .post-footer {
-  
+  max-width: var(--max-width-readable);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.post-thanks,
+.post-next {
+  padding: 0 srem(1);
+}
+
+.post-footer__section {
+  display: block;
+  margin: srem(3) 0;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.post-footer__title {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1em;
+}
+
+/* .excerpts-gallery, */
+.next-posts-gallery {
+  display: flex;
+  flex-flow: column nowrap;  
+}
+
+  .excerpts-gallery__excerpt {
+    padding: 0 srem(3);
+    transition: all 300ms ease;
+  }
+
+  .excerpts-gallery__excerpt.not-in-view {
+    opacity: .6;
+  }
+
+.excerpt-card,
+.next-post-card {
+  display: block;
+  font-size: srem(1);
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .1);
+  border-radius: 10px;
+}
+
+.excerpt-card { padding: srem(1); }
+
+.excerpt-card__actions {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin-top: srem(3);
+}
+
+  a.excerpt-action { font-weight: var(--font-weight-medium); }
+
+  a.excerpt-action--twitter { color: #49A0EC; }
+  a.excerpt-action--facebook { color: #3b5998; }
+  a.excerpt-action--copy { color: #333; }
+
+.next-posts-gallery__post + .next-posts-gallery__post {
+  margin-top: srem(3);
+}
+
+.next-post-card {
+}
+
+.next-post-card__cover {
+  width: 100%;
+  overflow: hidden;
+}
+
+.next-post-card__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: all 1s var(--easeInOutSine);
+}
+
+  .next-post-card:hover .next-post-card__cover img {
+    transition-duration: 4s;
+    transform: scale(1.2);
+  }
+
+.next-post-card__title {
+  display: block;
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  padding: srem(3) 0;
+  color: var(--color-black);
+}
+
+  a.next-post-card:hover .next-post-card__title {
+    text-decoration: none;
+    color: var(--color-red);
+  }
+
+
+/* Next posts */
+
+@media (--media-medium-up) {
+  .post-footer {
+
+  }
+
+  .post-thanks,
+  .post-next {
+    padding: 0;
+  }
+
+  .post-footer__section { 
+    margin: srem(5) 0; 
+    overflow-x: visible
+  }
+
+  .post-footer__title {
+    font-size: srem(3);
+  }
+
+  .excerpt-card {
+    border-radius: 20px;
+    padding: srem(3);
+  }
+
 }
