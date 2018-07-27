@@ -27,7 +27,7 @@ const getPosts = async () => {
   }
 }
 
-const findPost = (slug, posts=[]) => posts.find(p => p.slug === slug);
+const findPost = (slug, posts=[]) => Object.assign({}, posts.find(p => p.slug === slug));
 
 const getPost = async slug => {
   try {

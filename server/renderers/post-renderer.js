@@ -24,6 +24,16 @@ const preview = (html, paragraphCount=1) => {
   return text.join(' ');
 }
 
+const getPostIndex = (allPosts, post) => {
+  let index = 0;
+  allPosts.some((p, i) => {
+    if (p.slug === post.slug) {
+      index = i;
+      return true;
+    }
+  });
+  return index;
+}
 
 /**
  * Return a subset of posts after the current. If the end of the list is reached,
@@ -33,7 +43,7 @@ const preview = (html, paragraphCount=1) => {
  * @param {Number} count How many next posts to return
  */
 const nextPosts = (allPosts, post, count) => {
-  const postIndex = allPosts.indexOf(post);
+  const postIndex = getPostIndex(allPosts, post);
   const lastIndex = allPosts.length - 1;
   const next = [];
   let nextIndex = postIndex + 1;
