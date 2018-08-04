@@ -1,4 +1,3 @@
-import runOpener from './opener/opener';
 import { el, debounce } from 'utils/helpers';
 import { initProjectVideos } from './projects/projects';
 
@@ -45,7 +44,6 @@ const primeVideosOnScroll = videos => {
 }
 
 const initHomepage = () => {
-  runOpener();
   const projectVideos = initProjectVideos();
   primeVideosOnScroll( projectVideos );
 }
