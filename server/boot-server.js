@@ -24,28 +24,6 @@ const bootServer = async ({ css, js, staticPath }) => {
   // rapidly get to them when a request comes in.
   await bundleToMemory(js);
   await cssToMemory(css).catch(err => error(err));
-
-
-  // Configure server level error reporting
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  
-  // Downstream error reporting middleware
-  // https://github.com/koajs/koa/wiki/Error-Handling
-  app.use(async (ctx, next) => {
-    try {
-      await next();
-    } catch (err) {
-      err.expose = true;
-      ctx.status = err.status || 500;
-      if (ctx.status >= 300) {
-        ctx.body = renderError(ctx.status);
-        ctx.app.emit('error', err, ctx);
-      }
-    }
-  });
-  app.on('error', (err, ctx) => {
-    error('%s was encountered: %O', ctx.status, err);
-  });
   
 
   // Configure Koa Middleware
@@ -59,6 +37,28 @@ const bootServer = async ({ css, js, staticPath }) => {
 
   // Setup the static middleware, which will serve static assets from a directory
   app.use(koaStatic(fromBase(staticPath)));
+  
+  
+  // Configure server level error reporting
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
+  // Downstream error reporting middleware
+  // https://github.com/koajs/koa/wiki/Error-Handling
+  app.use(async (ctx, next) => {
+    try {
+      await next();
+    } catch (err) {
+      ctx.status = err.status || 500;
+      if (ctx.status >= 300) {
+        ctx.body = renderError(ctx.status);
+        ctx.app.emit('error', err, ctx);
+      }
+    }
+  });
+  app.on('error', (err, ctx) => {
+    ctx.body = renderError( String(ctx.status) );
+    error('%s was encountered: %O', ctx.status, err);
+  });
   
   // Finally, boot the server
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

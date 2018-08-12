@@ -11,20 +11,16 @@ const postsCache = new Cache({
 const getEndpointUrl = (path) => `${nosajApiUrl}/${path}`;
 
 const getPosts = async () => {
-  try {
-    const postsEndpoint = getEndpointUrl('posts')
-    const fromCache = postsCache.get(postsEndpoint);
-    if (fromCache) {
-      log('Get posts from cache');
-      return fromCache;
-    }
-    const posts = await axios.get(postsEndpoint);
-    log('Get posts from %s', postsEndpoint);
-    postsCache.set(postsEndpoint, posts.data);
-    return posts.data;
-  } catch (err) {
-    throw err;
+  const postsEndpoint = getEndpointUrl('posts')
+  const fromCache = postsCache.get(postsEndpoint);
+  if (fromCache) {
+    log('Get posts from cache');
+    return fromCache;
   }
+  const posts = await axios.get(postsEndpoint);
+  log('Get posts from %s', postsEndpoint);
+  postsCache.set(postsEndpoint, posts.data);
+  return posts.data;
 }
 
 const findPost = (slug, posts=[]) => Object.assign({}, posts.find(p => p.slug === slug));

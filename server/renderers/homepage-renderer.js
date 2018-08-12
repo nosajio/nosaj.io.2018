@@ -15,16 +15,20 @@ const page = {
 }
 
 const renderHomepage = async () => {
-  // Get all the view data
-  const css      = assetFromFS('homepage.css');
-  const js       = assetFromFS('homepage.js');
-  const posts    = await getPosts();
-  const viewData = withMetadata({ css, js, posts: posts.slice(0, page.maxPosts) });
+  try {
+    // Get all the view data
+    const css      = assetFromFS('homepage.css');
+    const js       = assetFromFS('homepage.js');
+    const posts    = await getPosts();
+    const viewData = withMetadata({ css, js, posts: posts.slice(0, page.maxPosts) });
 
-  // Generate the view
-  const view = getViewHTML('homepage/homepage', viewData);
-  
-  return view;
+    // Generate the view
+    const view = getViewHTML('homepage/homepage', viewData);
+    
+    return view;
+  } catch(err) {
+    throw err;
+  }
 }
 
 module.exports = renderHomepage
