@@ -1,0 +1,16 @@
+- const headerFixed = true;
+doctype html
+html
+  include /partials/head.pug
+  body.homepage
+    include /partials/header-light.pug
+    .grid-container.grid-container--fluid
+      include ./opener/opener2.pug
+      include ./logos/logos.pug
+      include ./posts/posts.pug
+      include ./projects/projects.pug
+      include ./how-i-help/how-i-help.pug
+      include ./hire-me/hire-me.pug
+    .footer-logo
+    include /partials/footer.pug
+    include /partials/scripts.pug

@@ -14,18 +14,43 @@ const page = {
   maxPosts: 3,
 }
 
-const renderHomepage = async () => {
-  try {
-    // Get all the view data
-    const css      = assetFromFS('homepage.css');
-    const js       = assetFromFS('homepage.js');
-    const posts    = await getPosts();
-    const viewData = withMetadata({ css, js, posts: posts.slice(0, page.maxPosts) });
+/**
+ * Multiple renderers for running different experiments
+ */
 
-    // Generate the view
-    const view = getViewHTML('homepage/homepage', viewData);
-    
-    return view;
+const renderHomepage1 = async () => {
+  // Get all the view data
+  const css      = assetFromFS('homepage.css');
+  const js       = assetFromFS('homepage.js');
+  const posts    = await getPosts();
+  const viewData = withMetadata({ css, js, posts: posts.slice(0, page.maxPosts) });
+
+  // Generate the view
+  return getViewHTML('homepage/homepage', viewData);
+}
+
+const renderHomepage2 = async () => {
+  // Get all the view data
+  const css      = assetFromFS('homepage.css');
+  const js       = assetFromFS('homepage.js');
+  const posts    = await getPosts();
+  const viewData = withMetadata({ css, js, posts: posts.slice(0, page.maxPosts) });
+
+  // Generate the view
+  return getViewHTML('homepage/homepage2', viewData);
+}
+
+/**
+ * 
+ * @param {Number} version Which version of the page to render
+ */
+const renderHomepage = async (version=1) => {
+  try {
+    switch(version) {
+      case 1: return await renderHomepage1();
+      case 2: return await renderHomepage2();
+      default: return await renderHomepage1();
+    }
   } catch(err) {
     throw err;
   }
