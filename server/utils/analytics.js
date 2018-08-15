@@ -5,10 +5,13 @@ const package = require('../../package.json');
  */
 exports.composeWithExperiment = (page, experimentName) => (view) => ({
   ...view,
-  experimentJs: `ga('send', {
-    hitType: 'event',
-    eventCategory: 'Experiments',
-    eventAction: '${page}',
-    eventLabel: '${experimentName}'
+  experimentJs: `window.addEventListener('load', function() { 
+    if (! ga) return console.log('ga not loaded');
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Experiments',
+      eventAction: '${page}',
+      eventLabel: '${experimentName}'
+    });
   });`
 });
