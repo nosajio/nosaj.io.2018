@@ -6,3 +6,6 @@ if js
 script(async src='https://www.googletagmanager.com/gtag/js?id=UA-122370645-1')
 script
   include ./google-analytics.js
+
+if experimentJs
+  script !{experimentJs}

@@ -5,8 +5,8 @@ module.exports = async (ctx, next) => {
   const { request, response } = ctx;
   try {
     const view = new Experiment([
-      async () => await renderHomepage(1),
-      async () => await renderHomepage(2)
+      async () => await renderHomepage('A'),
+      async () => await renderHomepage('B')
     ]);
     response.body = await view.render();
   } catch (err) {
